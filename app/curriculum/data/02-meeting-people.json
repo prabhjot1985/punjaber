@@ -1,0 +1,79 @@
+{
+  "id": "u2",
+  "order": 2,
+  "title": "Meeting People",
+  "description": "Introduce yourself, ask someone's name, and say where you are from.",
+  "lessons": [
+    {
+      "id": "u2l1",
+      "title": "I, you, we",
+      "goal": "Use the pronouns every Punjabi sentence is built on.",
+      "notes": [
+        "tun is for close friends, children and family. tusin is polite and also plural — when in doubt use tusin.",
+        "\"My\" changes with the gender of the thing owned, not the owner: mera bhra (my brother), meri bhain (my sister)."
+      ],
+      "items": [
+        {"id": "u2l1-01", "pa": "ਮੈਂ", "roman": "main", "en": "I", "kind": "word"},
+        {"id": "u2l1-02", "pa": "ਤੂੰ", "roman": "tun", "en": "you (casual)", "kind": "word"},
+        {"id": "u2l1-03", "pa": "ਤੁਸੀਂ", "roman": "tusin", "en": "you (polite / plural)", "kind": "word"},
+        {"id": "u2l1-04", "pa": "ਅਸੀਂ", "roman": "asin", "en": "we", "kind": "word"},
+        {"id": "u2l1-05", "pa": "ਉਹ", "roman": "uh", "en": "he / she / they / that", "kind": "word"},
+        {"id": "u2l1-06", "pa": "ਇਹ", "roman": "ih", "en": "this / he / she (nearby)", "kind": "word"},
+        {"id": "u2l1-07", "pa": "ਮੇਰਾ", "roman": "mera", "en": "my (masculine)", "kind": "word"},
+        {"id": "u2l1-08", "pa": "ਮੇਰੀ", "roman": "meri", "en": "my (feminine)", "kind": "word"},
+        {"id": "u2l1-09", "pa": "ਤੁਹਾਡਾ", "roman": "tuhada", "en": "your (polite)", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u2l2",
+      "title": "What's your name?",
+      "goal": "Exchange names and say nice to meet you.",
+      "notes": [
+        "Punjabi word order is subject - object - verb. mera naan John hai is literally \"my name John is\".",
+        "hai (\"is\") sits at the end of the sentence."
+      ],
+      "items": [
+        {"id": "u2l2-01", "pa": "ਨਾਂ", "roman": "naan", "en": "name", "kind": "word"},
+        {"id": "u2l2-02", "pa": "ਮੇਰਾ ਨਾਂ ... ਹੈ", "roman": "mera naan ... hai", "en": "My name is ...", "kind": "phrase"},
+        {"id": "u2l2-03", "pa": "ਤੁਹਾਡਾ ਨਾਂ ਕੀ ਹੈ?", "roman": "tuhada naan ki hai?", "en": "What is your name? (polite)", "kind": "phrase"},
+        {"id": "u2l2-04", "pa": "ਤੇਰਾ ਨਾਂ ਕੀ ਹੈ?", "roman": "tera naan ki hai?", "en": "What is your name? (casual)", "kind": "phrase"},
+        {"id": "u2l2-05", "pa": "ਤੁਹਾਨੂੰ ਮਿਲ ਕੇ ਖੁਸ਼ੀ ਹੋਈ", "roman": "tuhanu mil ke khushi hoi", "en": "Pleased to meet you", "kind": "phrase"},
+        {"id": "u2l2-06", "pa": "ਮੈਂ ... ਹਾਂ", "roman": "main ... han", "en": "I am ...", "kind": "phrase"},
+        {"id": "u2l2-07", "pa": "ਉਸ ਦਾ ਨਾਂ ... ਹੈ", "roman": "us da naan ... hai", "en": "His / her name is ...", "kind": "phrase"},
+        {"id": "u2l2-08", "pa": "ਦੋਸਤ", "roman": "dost", "en": "friend", "kind": "word"}
+      ],
+      "dialogue": [
+        {"speaker": "Harpreet", "pa": "ਤੁਹਾਡਾ ਨਾਂ ਕੀ ਹੈ?", "roman": "tuhada naan ki hai?", "en": "What is your name?"},
+        {"speaker": "You", "pa": "ਮੇਰਾ ਨਾਂ ਸਾਰਾ ਹੈ। ਤੁਹਾਡਾ?", "roman": "mera naan Sara hai. tuhada?", "en": "My name is Sara. Yours?"},
+        {"speaker": "Harpreet", "pa": "ਮੇਰਾ ਨਾਂ ਹਰਪ੍ਰੀਤ ਹੈ।", "roman": "mera naan Harpreet hai.", "en": "My name is Harpreet."},
+        {"speaker": "You", "pa": "ਤੁਹਾਨੂੰ ਮਿਲ ਕੇ ਖੁਸ਼ੀ ਹੋਈ।", "roman": "tuhanu mil ke khushi hoi.", "en": "Pleased to meet you."}
+      ]
+    },
+    {
+      "id": "u2l3",
+      "title": "Where are you from?",
+      "goal": "Say where you live and where you come from.",
+      "notes": [
+        "Verbs agree with gender: a man says main sikh riha han, a woman says main sikh rahi han.",
+        "ton means \"from\": main Canada ton han — I am from Canada."
+      ],
+      "items": [
+        {"id": "u2l3-01", "pa": "ਤੁਸੀਂ ਕਿੱਥੋਂ ਹੋ?", "roman": "tusin kitthon ho?", "en": "Where are you from?", "kind": "phrase"},
+        {"id": "u2l3-02", "pa": "ਮੈਂ ... ਤੋਂ ਹਾਂ", "roman": "main ... ton han", "en": "I am from ...", "kind": "phrase"},
+        {"id": "u2l3-03", "pa": "ਦੇਸ਼", "roman": "desh", "en": "country", "kind": "word"},
+        {"id": "u2l3-04", "pa": "ਸ਼ਹਿਰ", "roman": "shahir", "en": "city", "kind": "word"},
+        {"id": "u2l3-05", "pa": "ਪਿੰਡ", "roman": "pind", "en": "village", "kind": "word"},
+        {"id": "u2l3-06", "pa": "ਪੰਜਾਬ", "roman": "panjab", "en": "Punjab", "kind": "word"},
+        {"id": "u2l3-07", "pa": "ਮੈਂ ਇੱਥੇ ਰਹਿੰਦਾ ਹਾਂ", "roman": "main itthe rahinda han", "en": "I live here (male speaker)", "kind": "phrase"},
+        {"id": "u2l3-08", "pa": "ਮੈਂ ਪੰਜਾਬੀ ਸਿੱਖ ਰਿਹਾ ਹਾਂ", "roman": "main panjabi sikh riha han", "en": "I am learning Punjabi (male speaker)", "kind": "phrase"},
+        {"id": "u2l3-09", "pa": "ਮੈਂ ਪੰਜਾਬੀ ਸਿੱਖ ਰਹੀ ਹਾਂ", "roman": "main panjabi sikh rahi han", "en": "I am learning Punjabi (female speaker)", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Gurdeep", "pa": "ਤੁਸੀਂ ਕਿੱਥੋਂ ਹੋ?", "roman": "tusin kitthon ho?", "en": "Where are you from?"},
+        {"speaker": "You", "pa": "ਮੈਂ ਅਮਰੀਕਾ ਤੋਂ ਹਾਂ।", "roman": "main amrika ton han.", "en": "I'm from America."},
+        {"speaker": "Gurdeep", "pa": "ਤੁਸੀਂ ਪੰਜਾਬੀ ਬੋਲਦੇ ਹੋ?", "roman": "tusin panjabi bolde ho?", "en": "You speak Punjabi?"},
+        {"speaker": "You", "pa": "ਥੋੜ੍ਹੀ ਜਿਹੀ। ਮੈਂ ਪੰਜਾਬੀ ਸਿੱਖ ਰਿਹਾ ਹਾਂ।", "roman": "thorhi jihi. main panjabi sikh riha han.", "en": "A little. I'm learning Punjabi."}
+      ]
+    }
+  ]
+}

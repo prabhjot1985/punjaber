@@ -1,0 +1,84 @@
+{
+  "id": "u10",
+  "order": 10,
+  "title": "Real Conversations",
+  "description": "Small talk, being a guest, and holding a full conversation from hello to goodbye.",
+  "lessons": [
+    {
+      "id": "u10l1",
+      "title": "Small talk",
+      "goal": "Fill a pause with weather and pleasantries.",
+      "notes": [
+        "The weather is a safe opener anywhere: ajj bahut garmi hai.",
+        "ki haal hai? / kujh nahin is the Punjabi equivalent of \"what's up?\" / \"not much\"."
+      ],
+      "items": [
+        {"id": "u10l1-01", "pa": "ਮੌਸਮ", "roman": "mausam", "en": "weather", "kind": "word"},
+        {"id": "u10l1-02", "pa": "ਗਰਮੀ", "roman": "garmi", "en": "heat / summer", "kind": "word"},
+        {"id": "u10l1-03", "pa": "ਸਰਦੀ", "roman": "sardi", "en": "cold / winter", "kind": "word"},
+        {"id": "u10l1-04", "pa": "ਮੀਂਹ", "roman": "minh", "en": "rain", "kind": "word"},
+        {"id": "u10l1-05", "pa": "ਅੱਜ ਬਹੁਤ ਗਰਮੀ ਹੈ", "roman": "ajj bahut garmi hai", "en": "It's very hot today", "kind": "phrase"},
+        {"id": "u10l1-06", "pa": "ਕੀ ਹੋ ਰਿਹਾ ਹੈ?", "roman": "ki ho riha hai?", "en": "What's happening?", "kind": "phrase"},
+        {"id": "u10l1-07", "pa": "ਕੁਝ ਨਹੀਂ", "roman": "kujh nahin", "en": "Nothing much", "kind": "phrase"},
+        {"id": "u10l1-08", "pa": "ਵਧੀਆ", "roman": "vadhia", "en": "nice / good", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u10l2",
+      "title": "Being a guest",
+      "goal": "Survive — and enjoy — a visit to a Punjabi home.",
+      "notes": [
+        "You will be told to sit and to eat, repeatedly. Accepting once and then saying bas ji is the normal rhythm.",
+        "main challda han, \"I'll get going\", is how you start to leave without seeming abrupt."
+      ],
+      "items": [
+        {"id": "u10l2-01", "pa": "ਬੈਠੋ ਜੀ", "roman": "baitho ji", "en": "Please sit down", "kind": "phrase"},
+        {"id": "u10l2-02", "pa": "ਚਾਹ ਪੀਓਗੇ?", "roman": "chah pioge?", "en": "Will you have tea?", "kind": "phrase"},
+        {"id": "u10l2-03", "pa": "ਖਾਣਾ ਖਾ ਲਵੋ", "roman": "khana kha lavo", "en": "Please eat something", "kind": "phrase"},
+        {"id": "u10l2-04", "pa": "ਬਹੁਤ ਧੰਨਵਾਦ", "roman": "bahut dhannvad", "en": "Thank you very much", "kind": "phrase"},
+        {"id": "u10l2-05", "pa": "ਮੈਂ ਚੱਲਦਾ ਹਾਂ", "roman": "main challda han", "en": "I'll get going", "kind": "phrase"},
+        {"id": "u10l2-06", "pa": "ਜ਼ਰੂਰ", "roman": "zarur", "en": "certainly / of course", "kind": "word"},
+        {"id": "u10l2-07", "pa": "ਫਿਰ ਆਇਓ", "roman": "phir aaio", "en": "Come again", "kind": "phrase"},
+        {"id": "u10l2-08", "pa": "ਤੁਹਾਡਾ ਘਰ ਬਹੁਤ ਵਧੀਆ ਹੈ", "roman": "tuhada ghar bahut vadhia hai", "en": "Your home is very nice", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Host", "pa": "ਆਓ ਜੀ, ਬੈਠੋ ਜੀ। ਚਾਹ ਪੀਓਗੇ?", "roman": "ao ji, baitho ji. chah pioge?", "en": "Come in, sit down. Will you have tea?"},
+        {"speaker": "You", "pa": "ਜ਼ਰੂਰ ਜੀ। ਤੁਹਾਡਾ ਘਰ ਬਹੁਤ ਵਧੀਆ ਹੈ।", "roman": "zarur ji. tuhada ghar bahut vadhia hai.", "en": "Certainly. Your home is very nice."},
+        {"speaker": "Host", "pa": "ਖਾਣਾ ਵੀ ਖਾ ਲਵੋ।", "roman": "khana vi kha lavo.", "en": "Eat something too."},
+        {"speaker": "You", "pa": "ਬਸ ਜੀ, ਬਹੁਤ ਧੰਨਵਾਦ। ਹੁਣ ਮੈਂ ਚੱਲਦਾ ਹਾਂ।", "roman": "bas ji, bahut dhannvad. hun main challda han.", "en": "That's enough, thank you very much. I'll get going now."},
+        {"speaker": "Host", "pa": "ਫਿਰ ਆਇਓ! ਰੱਬ ਰਾਖਾ।", "roman": "phir aaio! rabb rakha.", "en": "Come again! Goodbye."}
+      ]
+    },
+    {
+      "id": "u10l3",
+      "title": "The whole conversation",
+      "goal": "Run a complete exchange, hello to goodbye, using everything you have learned.",
+      "notes": [
+        "Everything here is a recombination of Units 1-9. If a phrase feels new, it is only new furniture in a familiar room.",
+        "Say the closing dialogue out loud twice before you finish the course. That is the real test."
+      ],
+      "items": [
+        {"id": "u10l3-01", "pa": "ਮੈਂ ਥੋੜ੍ਹੀ ਪੰਜਾਬੀ ਬੋਲਦਾ ਹਾਂ", "roman": "main thorhi panjabi bolda han", "en": "I speak a little Punjabi", "kind": "phrase"},
+        {"id": "u10l3-02", "pa": "ਮੈਨੂੰ ਪੰਜਾਬੀ ਚੰਗੀ ਲੱਗਦੀ ਹੈ", "roman": "mainu panjabi changi laggdi hai", "en": "I like Punjabi", "kind": "phrase"},
+        {"id": "u10l3-03", "pa": "ਤੁਸੀਂ ਕੀ ਕੰਮ ਕਰਦੇ ਹੋ?", "roman": "tusin ki kamm karde ho?", "en": "What work do you do?", "kind": "phrase"},
+        {"id": "u10l3-04", "pa": "ਮੈਂ ਇੱਥੇ ਘੁੰਮਣ ਆਇਆ ਹਾਂ", "roman": "main itthe ghumman aaya han", "en": "I came here to travel", "kind": "phrase"},
+        {"id": "u10l3-05", "pa": "ਤੁਹਾਡਾ ਨੰਬਰ ਕੀ ਹੈ?", "roman": "tuhada number ki hai?", "en": "What is your number?", "kind": "phrase"},
+        {"id": "u10l3-06", "pa": "ਮਿਲਦੇ ਰਹਾਂਗੇ", "roman": "milde rahange", "en": "Let's keep in touch", "kind": "phrase"},
+        {"id": "u10l3-07", "pa": "ਤੁਹਾਡਾ ਬਹੁਤ ਧੰਨਵਾਦ ਜੀ", "roman": "tuhada bahut dhannvad ji", "en": "Thank you very much", "kind": "phrase"},
+        {"id": "u10l3-08", "pa": "ਅਗਲੀ ਵਾਰ", "roman": "agli var", "en": "next time", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Ravi", "pa": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?", "roman": "sat sri akal ji! tusin kiven ho?", "en": "Hello! How are you?"},
+        {"speaker": "You", "pa": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ। ਮੈਂ ਠੀਕ ਹਾਂ, ਤੇ ਤੁਸੀਂ?", "roman": "sat sri akal. main thik han, te tusin?", "en": "Hello. I'm fine, and you?"},
+        {"speaker": "Ravi", "pa": "ਸਭ ਠੀਕ ਹੈ। ਤੁਹਾਡਾ ਨਾਂ ਕੀ ਹੈ?", "roman": "sabh thik hai. tuhada naan ki hai?", "en": "All good. What's your name?"},
+        {"speaker": "You", "pa": "ਮੇਰਾ ਨਾਂ ਟੌਮ ਹੈ। ਮੈਂ ਅਮਰੀਕਾ ਤੋਂ ਹਾਂ।", "roman": "mera naan Tom hai. main amrika ton han.", "en": "My name is Tom. I'm from America."},
+        {"speaker": "Ravi", "pa": "ਵਧੀਆ! ਤੁਸੀਂ ਪੰਜਾਬੀ ਬੋਲਦੇ ਹੋ?", "roman": "vadhia! tusin panjabi bolde ho?", "en": "Nice! You speak Punjabi?"},
+        {"speaker": "You", "pa": "ਮੈਂ ਥੋੜ੍ਹੀ ਪੰਜਾਬੀ ਬੋਲਦਾ ਹਾਂ। ਮੈਨੂੰ ਪੰਜਾਬੀ ਚੰਗੀ ਲੱਗਦੀ ਹੈ।", "roman": "main thorhi panjabi bolda han. mainu panjabi changi laggdi hai.", "en": "I speak a little Punjabi. I like Punjabi."},
+        {"speaker": "Ravi", "pa": "ਚਾਹ ਪੀਓਗੇ?", "roman": "chah pioge?", "en": "Will you have tea?"},
+        {"speaker": "You", "pa": "ਜ਼ਰੂਰ ਜੀ, ਧੰਨਵਾਦ!", "roman": "zarur ji, dhannvad!", "en": "Certainly, thank you!"},
+        {"speaker": "Ravi", "pa": "ਫਿਰ ਮਿਲਾਂਗੇ। ਰੱਬ ਰਾਖਾ।", "roman": "phir milange. rabb rakha.", "en": "See you again. Goodbye."},
+        {"speaker": "You", "pa": "ਮਿਲਦੇ ਰਹਾਂਗੇ। ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਜੀ।", "roman": "milde rahange. sat sri akal ji.", "en": "Let's keep in touch. Goodbye."}
+      ]
+    }
+  ]
+}

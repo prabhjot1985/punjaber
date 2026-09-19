@@ -1,0 +1,11 @@
+## Overlay for development: live-reload the code and the course content.
+##   make dev
+services:
+  punjaber:
+    volumes:
+      - ./data:/data
+      - ./app:/app/app
+      - ./web:/app/web
+      - ./tests:/app/tests
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    restart: "no"

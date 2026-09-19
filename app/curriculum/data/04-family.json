@@ -1,0 +1,71 @@
+{
+  "id": "u4",
+  "order": 4,
+  "title": "Family and People",
+  "description": "Name the people in your life — the first thing anyone will ask you about.",
+  "lessons": [
+    {
+      "id": "u4l1",
+      "title": "The immediate family",
+      "goal": "Name parents, siblings and children.",
+      "notes": [
+        "mata and pita are formal/respectful. mammi and papa are what people actually say at home.",
+        "Family questions are normal small talk in Punjabi culture, not intrusive."
+      ],
+      "items": [
+        {"id": "u4l1-01", "pa": "ਪਰਿਵਾਰ", "roman": "parivar", "en": "family", "kind": "word"},
+        {"id": "u4l1-02", "pa": "ਮਾਤਾ", "roman": "mata", "en": "mother (respectful)", "kind": "word"},
+        {"id": "u4l1-03", "pa": "ਪਿਤਾ", "roman": "pita", "en": "father (respectful)", "kind": "word"},
+        {"id": "u4l1-04", "pa": "ਮੰਮੀ", "roman": "mammi", "en": "mom", "kind": "word"},
+        {"id": "u4l1-05", "pa": "ਪਾਪਾ", "roman": "papa", "en": "dad", "kind": "word"},
+        {"id": "u4l1-06", "pa": "ਭਰਾ", "roman": "bhra", "en": "brother", "kind": "word"},
+        {"id": "u4l1-07", "pa": "ਭੈਣ", "roman": "bhain", "en": "sister", "kind": "word"},
+        {"id": "u4l1-08", "pa": "ਬੱਚਾ", "roman": "bachcha", "en": "child", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u4l2",
+      "title": "Wider family",
+      "goal": "Talk about spouses, children and grandparents.",
+      "notes": [
+        "Punjabi distinguishes the two sides of the family: dada / dadi are your father's parents, nana / nani your mother's.",
+        "There is no single word for \"grandparent\" — you must pick a side."
+      ],
+      "items": [
+        {"id": "u4l2-01", "pa": "ਪੁੱਤਰ", "roman": "puttar", "en": "son", "kind": "word"},
+        {"id": "u4l2-02", "pa": "ਧੀ", "roman": "dhi", "en": "daughter", "kind": "word"},
+        {"id": "u4l2-03", "pa": "ਪਤੀ", "roman": "pati", "en": "husband", "kind": "word"},
+        {"id": "u4l2-04", "pa": "ਪਤਨੀ", "roman": "patni", "en": "wife", "kind": "word"},
+        {"id": "u4l2-05", "pa": "ਦਾਦਾ", "roman": "dada", "en": "grandfather (father's side)", "kind": "word"},
+        {"id": "u4l2-06", "pa": "ਦਾਦੀ", "roman": "dadi", "en": "grandmother (father's side)", "kind": "word"},
+        {"id": "u4l2-07", "pa": "ਨਾਨਾ", "roman": "nana", "en": "grandfather (mother's side)", "kind": "word"},
+        {"id": "u4l2-08", "pa": "ਨਾਨੀ", "roman": "nani", "en": "grandmother (mother's side)", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u4l3",
+      "title": "Talking about your family",
+      "goal": "Introduce someone and say how many family members you have.",
+      "notes": [
+        "\"I have\" is expressed with \"there are to me\": mere do bachche han — literally \"my two children are\".",
+        "ih is used to present someone standing right there: ih mera bhra hai."
+      ],
+      "items": [
+        {"id": "u4l3-01", "pa": "ਮੁੰਡਾ", "roman": "munda", "en": "boy", "kind": "word"},
+        {"id": "u4l3-02", "pa": "ਕੁੜੀ", "roman": "kurhi", "en": "girl", "kind": "word"},
+        {"id": "u4l3-03", "pa": "ਆਦਮੀ", "roman": "aadmi", "en": "man", "kind": "word"},
+        {"id": "u4l3-04", "pa": "ਔਰਤ", "roman": "aurat", "en": "woman", "kind": "word"},
+        {"id": "u4l3-05", "pa": "ਇਹ ਮੇਰਾ ਭਰਾ ਹੈ", "roman": "ih mera bhra hai", "en": "This is my brother", "kind": "phrase"},
+        {"id": "u4l3-06", "pa": "ਇਹ ਮੇਰੀ ਭੈਣ ਹੈ", "roman": "ih meri bhain hai", "en": "This is my sister", "kind": "phrase"},
+        {"id": "u4l3-07", "pa": "ਮੇਰੇ ਦੋ ਬੱਚੇ ਹਨ", "roman": "mere do bachche han", "en": "I have two children", "kind": "phrase"},
+        {"id": "u4l3-08", "pa": "ਤੁਹਾਡਾ ਪਰਿਵਾਰ ਕਿੱਥੇ ਹੈ?", "roman": "tuhada parivar kitthe hai?", "en": "Where is your family?", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Simran", "pa": "ਇਹ ਕੌਣ ਹੈ?", "roman": "ih kaun hai?", "en": "Who is this?"},
+        {"speaker": "You", "pa": "ਇਹ ਮੇਰੀ ਭੈਣ ਹੈ।", "roman": "ih meri bhain hai.", "en": "This is my sister."},
+        {"speaker": "Simran", "pa": "ਤੁਹਾਡੇ ਬੱਚੇ ਹਨ?", "roman": "tuhade bachche han?", "en": "Do you have children?"},
+        {"speaker": "You", "pa": "ਹਾਂ ਜੀ, ਮੇਰੇ ਦੋ ਬੱਚੇ ਹਨ।", "roman": "han ji, mere do bachche han.", "en": "Yes, I have two children."}
+      ]
+    }
+  ]
+}

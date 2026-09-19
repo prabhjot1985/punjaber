@@ -1,0 +1,73 @@
+{
+  "id": "u0",
+  "order": 0,
+  "optional": true,
+  "title": "Sounds and Script",
+  "description": "The four things Punjabi does that English does not. Do this first if you want to be understood — or skip ahead to Unit 1 and come back.",
+  "lessons": [
+    {
+      "id": "u0l1",
+      "title": "The puff of air",
+      "goal": "Hear and make the difference between k and kh, p and ph, t and th, ch and chh.",
+      "notes": [
+        "English has both sounds already, but uses them at random: the p in 'pin' has a puff of air, the p in 'spin' does not. English speakers never notice, because swapping them never changes a word.",
+        "In Punjabi that puff is the whole word. pal is a moment; phal is fruit. Get it wrong and you have said a different thing.",
+        "Test yourself: hold a strip of paper in front of your mouth. On phal it should jump. On pal it should barely move.",
+        "These four pairs are all voiceless. The letters gh, jh, dh, bh look like the same idea but behave completely differently — they are tone letters, and they get their own lesson."
+      ],
+      "items": [
+        {"id": "u0l1-01", "pa": "ਪਲ", "roman": "pal", "en": "a moment", "kind": "word", "pair": "u0l1-02", "contrast": "aspiration", "say": "No puff. Like the p in 'spin', not 'pin'."},
+        {"id": "u0l1-02", "pa": "ਫਲ", "roman": "phal", "en": "fruit", "kind": "word", "pair": "u0l1-01", "contrast": "aspiration", "say": "Strong puff of air after the p. Not an f."},
+        {"id": "u0l1-03", "pa": "ਤਾਲ", "roman": "taal", "en": "rhythm, beat", "kind": "word", "pair": "u0l1-04", "contrast": "aspiration", "say": "Tongue on the teeth, no puff."},
+        {"id": "u0l1-04", "pa": "ਥਾਲ", "roman": "thaal", "en": "a large serving plate", "kind": "word", "pair": "u0l1-03", "contrast": "aspiration", "say": "Same tongue position, then a puff. Never the 'th' of 'think'."},
+        {"id": "u0l1-05", "pa": "ਚਾਹ", "roman": "chah", "en": "tea", "kind": "word", "pair": "u0l1-06", "contrast": "aspiration", "say": "Like 'ch' in 'chair', no puff."},
+        {"id": "u0l1-06", "pa": "ਛਾਹ", "roman": "chhah", "en": "buttermilk", "kind": "word", "pair": "u0l1-05", "contrast": "aspiration", "say": "Same 'ch', then a clear puff of air."},
+        {"id": "u0l1-07", "pa": "ਕਾਲ", "roman": "kaal", "en": "famine; time", "kind": "word", "pair": "u0l1-08", "contrast": "aspiration", "say": "Like the k in 'skill'. No puff."},
+        {"id": "u0l1-08", "pa": "ਖਾਲ", "roman": "khaal", "en": "skin, hide", "kind": "word", "pair": "u0l1-07", "contrast": "aspiration", "say": "Like the k in 'kill', with the puff exaggerated."}
+      ]
+    },
+    {
+      "id": "u0l2",
+      "title": "Where your tongue goes",
+      "goal": "Separate the dental sounds from the retroflex ones — the single biggest giveaway of an English accent.",
+      "notes": [
+        "English t and d are made with the tongue on the ridge behind the teeth — halfway between the two Punjabi sounds, and wrong for both.",
+        "Dental (t, d, n): push the tongue tip flat against the back of your upper front teeth. Softer and duller than English.",
+        "Retroflex (tt, dd, nn, rh): curl the tongue tip back and up, touching the roof of the mouth. Sharper and hollower than English.",
+        "If you use the English sound for both, Punjabi speakers will usually still understand you — but this is the thing that marks you out most, and it is fixable in an afternoon."
+      ],
+      "items": [
+        {"id": "u0l2-01", "pa": "ਤਾਲ", "roman": "taal", "en": "rhythm, beat", "kind": "word", "pair": "u0l2-02", "contrast": "retroflex", "say": "Dental: tongue flat on the back of the upper teeth."},
+        {"id": "u0l2-02", "pa": "ਟਾਲ", "roman": "ttaal", "en": "to put off, postpone", "kind": "word", "pair": "u0l2-01", "contrast": "retroflex", "say": "Retroflex: tongue curled back to the roof of the mouth."},
+        {"id": "u0l2-03", "pa": "ਦਾਲ", "roman": "daal", "en": "lentils", "kind": "word", "pair": "u0l2-04", "contrast": "retroflex", "say": "Dental d, tongue on the teeth."},
+        {"id": "u0l2-04", "pa": "ਡਾਲ", "roman": "ddaal", "en": "a branch", "kind": "word", "pair": "u0l2-03", "contrast": "retroflex", "say": "Retroflex d, tongue curled back. Closer to the English d than the dental one is."},
+        {"id": "u0l2-05", "pa": "ਵਾਰ", "roman": "vaar", "en": "a turn, an occasion", "kind": "word", "pair": "u0l2-06", "contrast": "retroflex", "say": "A tapped r, tongue forward."},
+        {"id": "u0l2-06", "pa": "ਵਾੜ", "roman": "vaarh", "en": "a fence", "kind": "word", "pair": "u0l2-05", "contrast": "retroflex", "say": "Retroflex flap: curl the tongue back and flick it forward."},
+        {"id": "u0l2-07", "pa": "ਸਾਰ", "roman": "saar", "en": "essence; care", "kind": "word", "pair": "u0l2-08", "contrast": "retroflex", "say": "Ordinary tapped r."},
+        {"id": "u0l2-08", "pa": "ਸਾੜ", "roman": "saarh", "en": "to burn", "kind": "word", "pair": "u0l2-07", "contrast": "retroflex", "say": "That same backward flick of the curled tongue."}
+      ]
+    },
+    {
+      "id": "u0l3",
+      "title": "Tone, doubling and nasals",
+      "goal": "Understand the three features that no amount of listening to a synthesiser will teach you.",
+      "notes": [
+        "PUNJABI IS TONAL — almost alone among the languages of the region. The letters gh, jh, dh, dhh and bh are no longer pronounced as voiced aspirates. They lost the breath and gained a pitch: the syllable starts low and rises.",
+        "So ghorha (horse) is really pronounced closer to 'korha' with a dipping pitch, and korha (whip) is said flat. Same consonant, different melody, different word.",
+        "The addak — the little v-shape above a letter — doubles the consonant that follows it. Hold that consonant a beat longer: pata (knowledge) versus patta (leaf); sat (truth) versus satt (seven).",
+        "The bindi (a dot above) and tippi (a curl above) both nasalise: let air out through the nose while you say the vowel, as in the French 'bon'.",
+        "Be warned: this app's built-in voice is a synthesiser. It handles the puff and the tongue position well, but it under-plays tone and ignores doubling completely. For these three, trust the written explanation over what you hear — and copy a native speaker when you get the chance."
+      ],
+      "items": [
+        {"id": "u0l3-01", "pa": "ਕੋੜਾ", "roman": "korha", "en": "a whip", "kind": "word", "pair": "u0l3-02", "contrast": "tone", "say": "Flat, level pitch across the word."},
+        {"id": "u0l3-02", "pa": "ਘੋੜਾ", "roman": "ghorha", "en": "a horse", "kind": "word", "pair": "u0l3-01", "contrast": "tone", "say": "Starts like k, but the pitch dips low then rises. Not a hard 'g'."},
+        {"id": "u0l3-03", "pa": "ਪਤਾ", "roman": "pata", "en": "knowledge; an address", "kind": "word", "pair": "u0l3-04", "contrast": "gemination", "say": "Single t, said quickly."},
+        {"id": "u0l3-04", "pa": "ਪੱਤਾ", "roman": "patta", "en": "a leaf", "kind": "word", "pair": "u0l3-03", "contrast": "gemination", "say": "Hold the t: pat-ta. The addak doubles it."},
+        {"id": "u0l3-05", "pa": "ਸਤ", "roman": "sat", "en": "truth, essence", "kind": "word", "pair": "u0l3-06", "contrast": "gemination", "say": "Short and single."},
+        {"id": "u0l3-06", "pa": "ਸੱਤ", "roman": "satt", "en": "seven", "kind": "word", "pair": "u0l3-05", "contrast": "gemination", "say": "Lean on the t. This is the word you met in Unit 3."},
+        {"id": "u0l3-07", "pa": "ਹਾਂ", "roman": "han", "en": "yes", "kind": "word", "say": "The bindi nasalises the vowel. The n is not a separate sound — it colours the aa."},
+        {"id": "u0l3-08", "pa": "ਅੰਬ", "roman": "amb", "en": "mango", "kind": "word", "say": "The tippi nasalises before the b. Hum through the nose into the b."}
+      ]
+    }
+  ]
+}

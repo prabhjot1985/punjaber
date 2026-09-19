@@ -1,0 +1,1 @@
+create app that progressively works through a curriculum for English speaker to learn to speak conversational Punjabi in easy increments. Run in docker and and it  should have make commands to start.                                                                                                 

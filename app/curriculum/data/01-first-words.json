@@ -1,0 +1,83 @@
+{
+  "id": "u1",
+  "order": 1,
+  "title": "First Words",
+  "description": "Say hello, say thanks, and answer \"how are you?\" — enough to start a real conversation on day one.",
+  "lessons": [
+    {
+      "id": "u1l1",
+      "title": "Hello and goodbye",
+      "goal": "Greet someone and take your leave politely.",
+      "notes": [
+        "Sat sri akal is the standard Sikh/Punjabi greeting and works for both hello and goodbye, any time of day.",
+        "Add ji to almost anything to make it polite. It is the single most useful word in Punjabi."
+      ],
+      "items": [
+        {"id": "u1l1-01", "pa": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ", "roman": "sat sri akal", "en": "Hello / Goodbye", "kind": "phrase", "note": "The all-purpose Punjabi greeting."},
+        {"id": "u1l1-02", "pa": "ਨਮਸਤੇ", "roman": "namaste", "en": "Hello (general)", "kind": "phrase"},
+        {"id": "u1l1-03", "pa": "ਜੀ", "roman": "ji", "en": "sir / ma'am (polite particle)", "kind": "word", "note": "Tack it on the end to show respect."},
+        {"id": "u1l1-04", "pa": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਜੀ", "roman": "sat sri akal ji", "en": "Hello (polite)", "kind": "phrase"},
+        {"id": "u1l1-05", "pa": "ਆਓ ਜੀ", "roman": "ao ji", "en": "Welcome / Please come in", "kind": "phrase"},
+        {"id": "u1l1-06", "pa": "ਫਿਰ ਮਿਲਾਂਗੇ", "roman": "phir milange", "en": "See you again", "kind": "phrase"},
+        {"id": "u1l1-07", "pa": "ਰੱਬ ਰਾਖਾ", "roman": "rabb rakha", "en": "Goodbye (God keep you)", "kind": "phrase"},
+        {"id": "u1l1-08", "pa": "ਸ਼ੁਭ ਸਵੇਰ", "roman": "shubh saver", "en": "Good morning", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Amrit", "pa": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਜੀ", "roman": "sat sri akal ji", "en": "Hello."},
+        {"speaker": "You", "pa": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ", "roman": "sat sri akal", "en": "Hello."},
+        {"speaker": "Amrit", "pa": "ਆਓ ਜੀ", "roman": "ao ji", "en": "Please come in."},
+        {"speaker": "You", "pa": "ਫਿਰ ਮਿਲਾਂਗੇ", "roman": "phir milange", "en": "See you again."}
+      ]
+    },
+    {
+      "id": "u1l2",
+      "title": "Yes, no, please, thanks",
+      "goal": "Accept, refuse, thank and apologise.",
+      "notes": [
+        "ji han and ji nahin are the polite forms of yes and no. Use them with strangers and elders.",
+        "koi gall nahin literally means \"no matter\" and covers no problem, never mind, and you're welcome."
+      ],
+      "items": [
+        {"id": "u1l2-01", "pa": "ਹਾਂ", "roman": "han", "en": "yes", "kind": "word"},
+        {"id": "u1l2-02", "pa": "ਨਹੀਂ", "roman": "nahin", "en": "no / not", "kind": "word"},
+        {"id": "u1l2-03", "pa": "ਜੀ ਹਾਂ", "roman": "ji han", "en": "yes (polite)", "kind": "phrase"},
+        {"id": "u1l2-04", "pa": "ਜੀ ਨਹੀਂ", "roman": "ji nahin", "en": "no (polite)", "kind": "phrase"},
+        {"id": "u1l2-05", "pa": "ਧੰਨਵਾਦ", "roman": "dhannvad", "en": "thank you", "kind": "word"},
+        {"id": "u1l2-06", "pa": "ਸ਼ੁਕਰੀਆ", "roman": "shukria", "en": "thanks", "kind": "word"},
+        {"id": "u1l2-07", "pa": "ਮਿਹਰਬਾਨੀ", "roman": "miharbani", "en": "please / kindness", "kind": "word"},
+        {"id": "u1l2-08", "pa": "ਮਾਫ਼ ਕਰਨਾ", "roman": "maaf karna", "en": "sorry / excuse me", "kind": "phrase"},
+        {"id": "u1l2-09", "pa": "ਕੋਈ ਗੱਲ ਨਹੀਂ", "roman": "koi gall nahin", "en": "No problem / You're welcome", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "You", "pa": "ਮਾਫ਼ ਕਰਨਾ ਜੀ", "roman": "maaf karna ji", "en": "Excuse me."},
+        {"speaker": "Shopkeeper", "pa": "ਜੀ ਹਾਂ", "roman": "ji han", "en": "Yes?"},
+        {"speaker": "You", "pa": "ਧੰਨਵਾਦ ਜੀ", "roman": "dhannvad ji", "en": "Thank you."},
+        {"speaker": "Shopkeeper", "pa": "ਕੋਈ ਗੱਲ ਨਹੀਂ", "roman": "koi gall nahin", "en": "You're welcome."}
+      ]
+    },
+    {
+      "id": "u1l3",
+      "title": "How are you?",
+      "goal": "Ask how someone is and answer back.",
+      "notes": [
+        "kiven ho? is casual. tusin kiven ho? adds the polite \"you\" and is safe with anyone.",
+        "thik hai does double duty: \"it's fine\" and \"OK, agreed\"."
+      ],
+      "items": [
+        {"id": "u1l3-01", "pa": "ਕਿਵੇਂ ਹੋ?", "roman": "kiven ho?", "en": "How are you? (casual)", "kind": "phrase"},
+        {"id": "u1l3-02", "pa": "ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?", "roman": "tusin kiven ho?", "en": "How are you? (polite)", "kind": "phrase"},
+        {"id": "u1l3-03", "pa": "ਕੀ ਹਾਲ ਹੈ?", "roman": "ki haal hai?", "en": "How's it going?", "kind": "phrase"},
+        {"id": "u1l3-04", "pa": "ਮੈਂ ਠੀਕ ਹਾਂ", "roman": "main thik han", "en": "I am fine", "kind": "phrase"},
+        {"id": "u1l3-05", "pa": "ਸਭ ਠੀਕ ਹੈ", "roman": "sabh thik hai", "en": "Everything is fine", "kind": "phrase"},
+        {"id": "u1l3-06", "pa": "ਬਹੁਤ ਵਧੀਆ", "roman": "bahut vadhia", "en": "Very good / Great", "kind": "phrase"},
+        {"id": "u1l3-07", "pa": "ਤੇ ਤੁਸੀਂ?", "roman": "te tusin?", "en": "And you?", "kind": "phrase"},
+        {"id": "u1l3-08", "pa": "ਠੀਕ ਹੈ", "roman": "thik hai", "en": "OK / alright", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Jasleen", "pa": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ! ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?", "roman": "sat sri akal! tusin kiven ho?", "en": "Hello! How are you?"},
+        {"speaker": "You", "pa": "ਮੈਂ ਠੀਕ ਹਾਂ, ਧੰਨਵਾਦ। ਤੇ ਤੁਸੀਂ?", "roman": "main thik han, dhannvad. te tusin?", "en": "I'm fine, thank you. And you?"},
+        {"speaker": "Jasleen", "pa": "ਸਭ ਠੀਕ ਹੈ, ਬਹੁਤ ਵਧੀਆ।", "roman": "sabh thik hai, bahut vadhia.", "en": "All good, great."}
+      ]
+    }
+  ]
+}

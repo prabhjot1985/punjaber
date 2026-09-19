@@ -1,0 +1,16 @@
+# Learner progress, and the regenerable synthesis cache.
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/audio/
+
+# Native-speaker recordings are deliberately NOT ignored: they are the one
+# thing here that cannot be regenerated. If you would rather keep audio out of
+# git, uncomment the line below and rely on "make recordings-backup" instead.
+# data/recordings/
+
+backups/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/

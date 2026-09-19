@@ -1,0 +1,14 @@
+services:
+  punjaber:
+    build: .
+    image: punjaber:latest
+    container_name: punjaber
+    ports:
+      - "${PUNJABER_PORT:-8000}:8000"
+    volumes:
+      # Progress lives on the host so rebuilding the image never wipes it.
+      - ./data:/data
+    environment:
+      PUNJABER_DB: /data/punjaber.db
+      PUNJABER_WEB: /app/web
+    restart: unless-stopped

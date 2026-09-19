@@ -1,0 +1,21 @@
+# Normalise text to LF in the repository. The Makefile and the shell recipes
+# inside it break on CRLF when the project is cloned onto Linux or macOS.
+* text=auto eol=lf
+
+# Recordings are audio. Marking them explicitly guarantees git never applies
+# line-ending conversion to them, which would silently corrupt every clip.
+*.webm binary
+*.ogg  binary
+*.m4a  binary
+*.mp3  binary
+*.wav  binary
+
+# Keep diffs of the course content readable.
+*.json text eol=lf
+*.py   text eol=lf
+*.js   text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+*.md   text eol=lf
+Makefile text eol=lf
+Dockerfile text eol=lf

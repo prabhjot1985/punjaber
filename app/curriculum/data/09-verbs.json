@@ -1,0 +1,72 @@
+{
+  "id": "u9",
+  "order": 9,
+  "title": "Verbs and Making Sentences",
+  "description": "The verb \"to be\", the eight verbs you need most, and the pattern that turns them into sentences.",
+  "lessons": [
+    {
+      "id": "u9l1",
+      "title": "To be",
+      "goal": "Say what something is — and what it is not.",
+      "notes": [
+        "The verb changes with the subject: main ... han, tu ... hain, uh ... hai, asin/tusin ... han/ho.",
+        "To negate, put nahin directly before the verb: uh vadda nahin hai."
+      ],
+      "items": [
+        {"id": "u9l1-01", "pa": "ਹਾਂ", "roman": "han", "en": "am / are (with main, asin)", "kind": "word"},
+        {"id": "u9l1-02", "pa": "ਹੈ", "roman": "hai", "en": "is", "kind": "word"},
+        {"id": "u9l1-03", "pa": "ਹਨ", "roman": "han", "en": "are (plural)", "kind": "word"},
+        {"id": "u9l1-04", "pa": "ਹੋ", "roman": "ho", "en": "are (with tusin)", "kind": "word"},
+        {"id": "u9l1-05", "pa": "ਸੀ", "roman": "si", "en": "was / were", "kind": "word"},
+        {"id": "u9l1-06", "pa": "ਨਹੀਂ ਹੈ", "roman": "nahin hai", "en": "is not", "kind": "phrase"},
+        {"id": "u9l1-07", "pa": "ਮੈਂ ਖੁਸ਼ ਹਾਂ", "roman": "main khush han", "en": "I am happy", "kind": "phrase"},
+        {"id": "u9l1-08", "pa": "ਉਹ ਵੱਡਾ ਹੈ", "roman": "uh vadda hai", "en": "He / it is big", "kind": "phrase"},
+        {"id": "u9l1-09", "pa": "ਇਹ ਛੋਟਾ ਹੈ", "roman": "ih chhota hai", "en": "This is small", "kind": "phrase"}
+      ]
+    },
+    {
+      "id": "u9l2",
+      "title": "Eight useful verbs",
+      "goal": "Learn the dictionary form of the verbs you will use most.",
+      "notes": [
+        "The dictionary form always ends in -na: jana, aauna, karna. That is the \"to ...\" form.",
+        "Drop the -na and add -da/-di + han to make \"I do X\": bolna becomes main bolda han."
+      ],
+      "items": [
+        {"id": "u9l2-01", "pa": "ਜਾਣਾ", "roman": "jana", "en": "to go", "kind": "word"},
+        {"id": "u9l2-02", "pa": "ਆਉਣਾ", "roman": "aauna", "en": "to come", "kind": "word"},
+        {"id": "u9l2-03", "pa": "ਕਰਨਾ", "roman": "karna", "en": "to do", "kind": "word"},
+        {"id": "u9l2-04", "pa": "ਬੋਲਣਾ", "roman": "bolna", "en": "to speak", "kind": "word"},
+        {"id": "u9l2-05", "pa": "ਸਮਝਣਾ", "roman": "samajhna", "en": "to understand", "kind": "word"},
+        {"id": "u9l2-06", "pa": "ਦੇਖਣਾ", "roman": "dekhna", "en": "to see / to look", "kind": "word"},
+        {"id": "u9l2-07", "pa": "ਸੁਣਨਾ", "roman": "sunna", "en": "to listen / to hear", "kind": "word"},
+        {"id": "u9l2-08", "pa": "ਸਿੱਖਣਾ", "roman": "sikhna", "en": "to learn", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u9l3",
+      "title": "Building your own sentences",
+      "goal": "Put subject, object and verb together — and negate them.",
+      "notes": [
+        "Word order: who - what - verb. main panjabi bolda han = I / Punjabi / speak.",
+        "Once you can swap the middle word, you can say hundreds of things with the verbs from the last lesson."
+      ],
+      "items": [
+        {"id": "u9l3-01", "pa": "ਮੈਂ ਪੰਜਾਬੀ ਬੋਲਦਾ ਹਾਂ", "roman": "main panjabi bolda han", "en": "I speak Punjabi (male speaker)", "kind": "phrase"},
+        {"id": "u9l3-02", "pa": "ਮੈਂ ਪੰਜਾਬੀ ਬੋਲਦੀ ਹਾਂ", "roman": "main panjabi boldi han", "en": "I speak Punjabi (female speaker)", "kind": "phrase"},
+        {"id": "u9l3-03", "pa": "ਤੁਸੀਂ ਕਿੱਥੇ ਜਾਂਦੇ ਹੋ?", "roman": "tusin kitthe jande ho?", "en": "Where do you go?", "kind": "phrase"},
+        {"id": "u9l3-04", "pa": "ਮੈਂ ਬਜ਼ਾਰ ਜਾਂਦਾ ਹਾਂ", "roman": "main bazar janda han", "en": "I go to the market", "kind": "phrase"},
+        {"id": "u9l3-05", "pa": "ਉਹ ਚਾਹ ਪੀਂਦਾ ਹੈ", "roman": "uh chah pinda hai", "en": "He drinks tea", "kind": "phrase"},
+        {"id": "u9l3-06", "pa": "ਅਸੀਂ ਪੰਜਾਬੀ ਸਿੱਖਦੇ ਹਾਂ", "roman": "asin panjabi sikhde han", "en": "We learn Punjabi", "kind": "phrase"},
+        {"id": "u9l3-07", "pa": "ਮੈਂ ਨਹੀਂ ਜਾਂਦਾ", "roman": "main nahin janda", "en": "I don't go", "kind": "phrase"},
+        {"id": "u9l3-08", "pa": "ਮੈਂ ਸਮਝਦਾ ਹਾਂ", "roman": "main samajhda han", "en": "I understand", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Neighbour", "pa": "ਤੁਸੀਂ ਕਿੱਥੇ ਜਾਂਦੇ ਹੋ?", "roman": "tusin kitthe jande ho?", "en": "Where are you going?"},
+        {"speaker": "You", "pa": "ਮੈਂ ਬਜ਼ਾਰ ਜਾਂਦਾ ਹਾਂ।", "roman": "main bazar janda han.", "en": "I'm going to the market."},
+        {"speaker": "Neighbour", "pa": "ਤੁਸੀਂ ਪੰਜਾਬੀ ਚੰਗੀ ਬੋਲਦੇ ਹੋ!", "roman": "tusin panjabi changi bolde ho!", "en": "You speak Punjabi well!"},
+        {"speaker": "You", "pa": "ਧੰਨਵਾਦ ਜੀ। ਮੈਂ ਸਿੱਖ ਰਿਹਾ ਹਾਂ।", "roman": "dhannvad ji. main sikh riha han.", "en": "Thank you. I'm learning."}
+      ]
+    }
+  ]
+}

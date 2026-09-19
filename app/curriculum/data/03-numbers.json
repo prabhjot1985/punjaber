@@ -1,0 +1,74 @@
+{
+  "id": "u3",
+  "order": 3,
+  "title": "Numbers and Counting",
+  "description": "Count, ask how many, and talk about prices and age.",
+  "lessons": [
+    {
+      "id": "u3l1",
+      "title": "One to ten",
+      "goal": "Count from one to ten out loud.",
+      "notes": [
+        "Punjabi doubles consonants a lot: ikk, satt, atth. Hold that consonant a beat longer than feels natural.",
+        "Numbers come before the noun, like English: do chah — two teas."
+      ],
+      "items": [
+        {"id": "u3l1-01", "pa": "ਇੱਕ", "roman": "ikk", "en": "one", "kind": "word"},
+        {"id": "u3l1-02", "pa": "ਦੋ", "roman": "do", "en": "two", "kind": "word"},
+        {"id": "u3l1-03", "pa": "ਤਿੰਨ", "roman": "tinn", "en": "three", "kind": "word"},
+        {"id": "u3l1-04", "pa": "ਚਾਰ", "roman": "chaar", "en": "four", "kind": "word"},
+        {"id": "u3l1-05", "pa": "ਪੰਜ", "roman": "panj", "en": "five", "kind": "word"},
+        {"id": "u3l1-06", "pa": "ਛੇ", "roman": "chhe", "en": "six", "kind": "word"},
+        {"id": "u3l1-07", "pa": "ਸੱਤ", "roman": "satt", "en": "seven", "kind": "word"},
+        {"id": "u3l1-08", "pa": "ਅੱਠ", "roman": "atth", "en": "eight", "kind": "word"},
+        {"id": "u3l1-09", "pa": "ਨੌਂ", "roman": "naun", "en": "nine", "kind": "word"},
+        {"id": "u3l1-10", "pa": "ਦਸ", "roman": "das", "en": "ten", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u3l2",
+      "title": "Eleven and beyond",
+      "goal": "Handle the teens and the round numbers you need for prices.",
+      "notes": [
+        "Punjabi teens are irregular — learn them as whole words, not as ten-plus-something.",
+        "Punjab itself means \"five rivers\": panj (five) + aab (water)."
+      ],
+      "items": [
+        {"id": "u3l2-01", "pa": "ਗਿਆਰਾਂ", "roman": "giaran", "en": "eleven", "kind": "word"},
+        {"id": "u3l2-02", "pa": "ਬਾਰਾਂ", "roman": "baran", "en": "twelve", "kind": "word"},
+        {"id": "u3l2-03", "pa": "ਤੇਰਾਂ", "roman": "teran", "en": "thirteen", "kind": "word"},
+        {"id": "u3l2-04", "pa": "ਚੌਦਾਂ", "roman": "chaudan", "en": "fourteen", "kind": "word"},
+        {"id": "u3l2-05", "pa": "ਪੰਦਰਾਂ", "roman": "pandran", "en": "fifteen", "kind": "word"},
+        {"id": "u3l2-06", "pa": "ਵੀਹ", "roman": "vih", "en": "twenty", "kind": "word"},
+        {"id": "u3l2-07", "pa": "ਤੀਹ", "roman": "tih", "en": "thirty", "kind": "word"},
+        {"id": "u3l2-08", "pa": "ਪੰਜਾਹ", "roman": "panjah", "en": "fifty", "kind": "word"},
+        {"id": "u3l2-09", "pa": "ਸੌ", "roman": "sau", "en": "hundred", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u3l3",
+      "title": "How many?",
+      "goal": "Ask for quantities, prices and someone's age.",
+      "notes": [
+        "kinne is \"how many\" for countable things; kinna is \"how much\" for uncountable ones.",
+        "Age is expressed as \"my age is X years\": meri umar tih saal hai."
+      ],
+      "items": [
+        {"id": "u3l3-01", "pa": "ਕਿੰਨੇ?", "roman": "kinne?", "en": "How many?", "kind": "phrase"},
+        {"id": "u3l3-02", "pa": "ਕਿੰਨਾ?", "roman": "kinna?", "en": "How much?", "kind": "phrase"},
+        {"id": "u3l3-03", "pa": "ਕਿੰਨੇ ਪੈਸੇ?", "roman": "kinne paise?", "en": "How much money?", "kind": "phrase"},
+        {"id": "u3l3-04", "pa": "ਪੈਸੇ", "roman": "paise", "en": "money", "kind": "word"},
+        {"id": "u3l3-05", "pa": "ਰੁਪਏ", "roman": "rupae", "en": "rupees", "kind": "word"},
+        {"id": "u3l3-06", "pa": "ਸਾਲ", "roman": "saal", "en": "year", "kind": "word"},
+        {"id": "u3l3-07", "pa": "ਮੇਰੀ ਉਮਰ ... ਸਾਲ ਹੈ", "roman": "meri umar ... saal hai", "en": "I am ... years old", "kind": "phrase"},
+        {"id": "u3l3-08", "pa": "ਦੋ ਚਾਹ", "roman": "do chah", "en": "two teas", "kind": "phrase"},
+        {"id": "u3l3-09", "pa": "ਪਹਿਲਾ", "roman": "pahila", "en": "first", "kind": "word"}
+      ],
+      "dialogue": [
+        {"speaker": "You", "pa": "ਦੋ ਚਾਹ ਜੀ। ਕਿੰਨੇ ਪੈਸੇ?", "roman": "do chah ji. kinne paise?", "en": "Two teas please. How much?"},
+        {"speaker": "Vendor", "pa": "ਪੰਜਾਹ ਰੁਪਏ।", "roman": "panjah rupae.", "en": "Fifty rupees."},
+        {"speaker": "You", "pa": "ਠੀਕ ਹੈ, ਧੰਨਵਾਦ।", "roman": "thik hai, dhannvad.", "en": "OK, thank you."}
+      ]
+    }
+  ]
+}

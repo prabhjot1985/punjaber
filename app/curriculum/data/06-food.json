@@ -1,0 +1,73 @@
+{
+  "id": "u6",
+  "order": 6,
+  "title": "Food and Drink",
+  "description": "Order tea, say you are hungry, and pay a compliment to the cook.",
+  "lessons": [
+    {
+      "id": "u6l1",
+      "title": "On the table",
+      "goal": "Name the everyday foods of a Punjabi kitchen.",
+      "notes": [
+        "roti means both \"flatbread\" and, loosely, \"a meal\". roti khani hai? means \"do you want to eat?\".",
+        "dal-roti together is the shorthand for simple home food."
+      ],
+      "items": [
+        {"id": "u6l1-01", "pa": "ਪਾਣੀ", "roman": "pani", "en": "water", "kind": "word"},
+        {"id": "u6l1-02", "pa": "ਚਾਹ", "roman": "chah", "en": "tea", "kind": "word"},
+        {"id": "u6l1-03", "pa": "ਦੁੱਧ", "roman": "duddh", "en": "milk", "kind": "word"},
+        {"id": "u6l1-04", "pa": "ਰੋਟੀ", "roman": "roti", "en": "flatbread / meal", "kind": "word"},
+        {"id": "u6l1-05", "pa": "ਦਾਲ", "roman": "daal", "en": "lentils", "kind": "word"},
+        {"id": "u6l1-06", "pa": "ਸਬਜ਼ੀ", "roman": "sabzi", "en": "vegetables", "kind": "word"},
+        {"id": "u6l1-07", "pa": "ਚੌਲ", "roman": "chaul", "en": "rice", "kind": "word"},
+        {"id": "u6l1-08", "pa": "ਦਹੀਂ", "roman": "dahin", "en": "yogurt", "kind": "word"},
+        {"id": "u6l1-09", "pa": "ਲੱਸੀ", "roman": "lassi", "en": "lassi (yogurt drink)", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u6l2",
+      "title": "Hungry and thirsty",
+      "goal": "Say you are hungry or thirsty and describe a taste.",
+      "notes": [
+        "Hunger \"attaches\" to you rather than being something you are: mainu bhukkh laggi hai — literally \"hunger has struck to me\".",
+        "bahut means \"very\" and goes before the adjective: bahut svad — very tasty."
+      ],
+      "items": [
+        {"id": "u6l2-01", "pa": "ਖਾਣਾ", "roman": "khana", "en": "food / to eat", "kind": "word"},
+        {"id": "u6l2-02", "pa": "ਪੀਣਾ", "roman": "pina", "en": "to drink", "kind": "word"},
+        {"id": "u6l2-03", "pa": "ਭੁੱਖ", "roman": "bhukkh", "en": "hunger", "kind": "word"},
+        {"id": "u6l2-04", "pa": "ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ", "roman": "mainu bhukkh laggi hai", "en": "I am hungry", "kind": "phrase"},
+        {"id": "u6l2-05", "pa": "ਮੈਨੂੰ ਪਿਆਸ ਲੱਗੀ ਹੈ", "roman": "mainu pias laggi hai", "en": "I am thirsty", "kind": "phrase"},
+        {"id": "u6l2-06", "pa": "ਬਹੁਤ ਸਵਾਦ ਹੈ", "roman": "bahut svad hai", "en": "It's very tasty", "kind": "phrase"},
+        {"id": "u6l2-07", "pa": "ਮਿੱਠਾ", "roman": "mittha", "en": "sweet", "kind": "word"},
+        {"id": "u6l2-08", "pa": "ਤਿੱਖਾ", "roman": "tikkha", "en": "spicy", "kind": "word"},
+        {"id": "u6l2-09", "pa": "ਪੇਟ ਭਰ ਗਿਆ", "roman": "pet bhar gaya", "en": "I'm full", "kind": "phrase"}
+      ]
+    },
+    {
+      "id": "u6l3",
+      "title": "Ordering and refusing",
+      "goal": "Ask for what you want, and politely stop the food coming.",
+      "notes": [
+        "chahida changes with the gender of the thing wanted: mainu chah chahidi hai (chah is feminine), mainu pani chahida hai (pani is masculine).",
+        "In a Punjabi home you will be offered more food repeatedly. bas ji, said with a smile, is the way out."
+      ],
+      "items": [
+        {"id": "u6l3-01", "pa": "ਮੈਨੂੰ ਚਾਹ ਚਾਹੀਦੀ ਹੈ", "roman": "mainu chah chahidi hai", "en": "I would like tea", "kind": "phrase"},
+        {"id": "u6l3-02", "pa": "ਮੈਨੂੰ ਪਾਣੀ ਚਾਹੀਦਾ ਹੈ", "roman": "mainu pani chahida hai", "en": "I would like water", "kind": "phrase"},
+        {"id": "u6l3-03", "pa": "ਇੱਕ ਹੋਰ", "roman": "ikk hor", "en": "one more", "kind": "phrase"},
+        {"id": "u6l3-04", "pa": "ਬਸ ਜੀ", "roman": "bas ji", "en": "That's enough, thank you", "kind": "phrase"},
+        {"id": "u6l3-05", "pa": "ਬਿੱਲ ਲਿਆਓ ਜੀ", "roman": "bill liao ji", "en": "Please bring the bill", "kind": "phrase"},
+        {"id": "u6l3-06", "pa": "ਮੈਂ ਸ਼ਾਕਾਹਾਰੀ ਹਾਂ", "roman": "main shakahari han", "en": "I am vegetarian", "kind": "phrase"},
+        {"id": "u6l3-07", "pa": "ਗਰਮ", "roman": "garam", "en": "hot (temperature)", "kind": "word"},
+        {"id": "u6l3-08", "pa": "ਠੰਢਾ", "roman": "thandha", "en": "cold", "kind": "word"}
+      ],
+      "dialogue": [
+        {"speaker": "Host", "pa": "ਚਾਹ ਪੀਓਗੇ?", "roman": "chah pioge?", "en": "Will you have tea?"},
+        {"speaker": "You", "pa": "ਹਾਂ ਜੀ, ਮੈਨੂੰ ਚਾਹ ਚਾਹੀਦੀ ਹੈ।", "roman": "han ji, mainu chah chahidi hai.", "en": "Yes, I'd like tea."},
+        {"speaker": "Host", "pa": "ਰੋਟੀ ਵੀ ਖਾ ਲਵੋ। ਇੱਕ ਹੋਰ?", "roman": "roti vi kha lavo. ikk hor?", "en": "Eat some food too. One more?"},
+        {"speaker": "You", "pa": "ਬਸ ਜੀ, ਪੇਟ ਭਰ ਗਿਆ। ਬਹੁਤ ਸਵਾਦ ਸੀ।", "roman": "bas ji, pet bhar gaya. bahut svad si.", "en": "That's enough, I'm full. It was very tasty."}
+      ]
+    }
+  ]
+}

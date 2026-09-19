@@ -1,0 +1,71 @@
+{
+  "id": "u5",
+  "order": 5,
+  "title": "Asking Questions",
+  "description": "The question words, the questions you will actually need, and how to ask for help when you get lost.",
+  "lessons": [
+    {
+      "id": "u5l1",
+      "title": "Question words",
+      "goal": "Learn the eight words that open almost every question.",
+      "notes": [
+        "Almost all of them start with k — ki, kaun, kitthe, kadon, kiun, kiven. That is your memory hook.",
+        "Unlike English, the question word usually stays where the answer would go, near the end of the sentence."
+      ],
+      "items": [
+        {"id": "u5l1-01", "pa": "ਕੀ", "roman": "ki", "en": "what", "kind": "word"},
+        {"id": "u5l1-02", "pa": "ਕੌਣ", "roman": "kaun", "en": "who", "kind": "word"},
+        {"id": "u5l1-03", "pa": "ਕਿੱਥੇ", "roman": "kitthe", "en": "where", "kind": "word"},
+        {"id": "u5l1-04", "pa": "ਕਦੋਂ", "roman": "kadon", "en": "when", "kind": "word"},
+        {"id": "u5l1-05", "pa": "ਕਿਉਂ", "roman": "kiun", "en": "why", "kind": "word"},
+        {"id": "u5l1-06", "pa": "ਕਿਵੇਂ", "roman": "kiven", "en": "how", "kind": "word"},
+        {"id": "u5l1-07", "pa": "ਕਿਹੜਾ", "roman": "kihrha", "en": "which", "kind": "word"},
+        {"id": "u5l1-08", "pa": "ਕਿਉਂਕਿ", "roman": "kiunki", "en": "because", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u5l2",
+      "title": "Questions you will actually use",
+      "goal": "Ask what something is, who someone is, and where things are.",
+      "notes": [
+        "ki at the start of a sentence turns a statement into a yes/no question: ki tusin panjabi bolde ho?",
+        "The same word ki also means \"what\" — position tells you which is meant."
+      ],
+      "items": [
+        {"id": "u5l2-01", "pa": "ਇਹ ਕੀ ਹੈ?", "roman": "ih ki hai?", "en": "What is this?", "kind": "phrase"},
+        {"id": "u5l2-02", "pa": "ਉਹ ਕੌਣ ਹੈ?", "roman": "uh kaun hai?", "en": "Who is that?", "kind": "phrase"},
+        {"id": "u5l2-03", "pa": "ਬਾਥਰੂਮ ਕਿੱਥੇ ਹੈ?", "roman": "bathroom kitthe hai?", "en": "Where is the bathroom?", "kind": "phrase"},
+        {"id": "u5l2-04", "pa": "ਤੁਸੀਂ ਕੀ ਕਰਦੇ ਹੋ?", "roman": "tusin ki karde ho?", "en": "What do you do?", "kind": "phrase"},
+        {"id": "u5l2-05", "pa": "ਕੀ ਤੁਸੀਂ ਅੰਗਰੇਜ਼ੀ ਬੋਲਦੇ ਹੋ?", "roman": "ki tusin angrezi bolde ho?", "en": "Do you speak English?", "kind": "phrase"},
+        {"id": "u5l2-06", "pa": "ਪੰਜਾਬੀ ਵਿੱਚ ਇਹਨੂੰ ਕੀ ਕਹਿੰਦੇ ਹਨ?", "roman": "panjabi vich ihnu ki kahinde han?", "en": "What is this called in Punjabi?", "kind": "phrase"},
+        {"id": "u5l2-07", "pa": "ਕਦੋਂ ਆਓਗੇ?", "roman": "kadon aaoge?", "en": "When will you come?", "kind": "phrase"},
+        {"id": "u5l2-08", "pa": "ਕੀ ਮੈਂ ਬੈਠ ਸਕਦਾ ਹਾਂ?", "roman": "ki main baith sakda han?", "en": "May I sit down?", "kind": "phrase"}
+      ]
+    },
+    {
+      "id": "u5l3",
+      "title": "When you get lost",
+      "goal": "Say you did not understand and ask someone to slow down.",
+      "notes": [
+        "These are the highest-value phrases in the whole course. Learn them cold — they keep a conversation alive when you are out of your depth.",
+        "Adding ji to a command softens it into a polite request: haule bolo ji."
+      ],
+      "items": [
+        {"id": "u5l3-01", "pa": "ਮੈਨੂੰ ਸਮਝ ਨਹੀਂ ਆਇਆ", "roman": "mainu samajh nahin aaya", "en": "I didn't understand", "kind": "phrase"},
+        {"id": "u5l3-02", "pa": "ਹੌਲੀ ਬੋਲੋ ਜੀ", "roman": "hauli bolo ji", "en": "Please speak slowly", "kind": "phrase"},
+        {"id": "u5l3-03", "pa": "ਫਿਰ ਕਹੋ ਜੀ", "roman": "phir kaho ji", "en": "Please say it again", "kind": "phrase"},
+        {"id": "u5l3-04", "pa": "ਮੈਨੂੰ ਨਹੀਂ ਪਤਾ", "roman": "mainu nahin pata", "en": "I don't know", "kind": "phrase"},
+        {"id": "u5l3-05", "pa": "ਮੈਨੂੰ ਪਤਾ ਹੈ", "roman": "mainu pata hai", "en": "I know", "kind": "phrase"},
+        {"id": "u5l3-06", "pa": "ਮਦਦ ਕਰੋ ਜੀ", "roman": "madad karo ji", "en": "Please help", "kind": "phrase"},
+        {"id": "u5l3-07", "pa": "ਥੋੜ੍ਹਾ ਥੋੜ੍ਹਾ", "roman": "thorha thorha", "en": "a little bit", "kind": "phrase"},
+        {"id": "u5l3-08", "pa": "ਮੈਂ ਸਿੱਖ ਰਿਹਾ ਹਾਂ", "roman": "main sikh riha han", "en": "I am learning", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Stranger", "pa": "...ਤੇ ਫਿਰ ਅਸੀਂ ਪਿੰਡ ਗਏ ਸੀ।", "roman": "...te phir asin pind gaye si.", "en": "...and then we went to the village."},
+        {"speaker": "You", "pa": "ਮਾਫ਼ ਕਰਨਾ, ਮੈਨੂੰ ਸਮਝ ਨਹੀਂ ਆਇਆ। ਹੌਲੀ ਬੋਲੋ ਜੀ।", "roman": "maaf karna, mainu samajh nahin aaya. hauli bolo ji.", "en": "Sorry, I didn't understand. Please speak slowly."},
+        {"speaker": "Stranger", "pa": "ਕੋਈ ਗੱਲ ਨਹੀਂ! ਤੁਸੀਂ ਪੰਜਾਬੀ ਸਿੱਖ ਰਹੇ ਹੋ?", "roman": "koi gall nahin! tusin panjabi sikh rahe ho?", "en": "No problem! You're learning Punjabi?"},
+        {"speaker": "You", "pa": "ਹਾਂ ਜੀ, ਥੋੜ੍ਹਾ ਥੋੜ੍ਹਾ।", "roman": "han ji, thorha thorha.", "en": "Yes, a little bit."}
+      ]
+    }
+  ]
+}

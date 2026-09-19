@@ -1,0 +1,73 @@
+{
+  "id": "u8",
+  "order": 8,
+  "title": "Time and Daily Life",
+  "description": "Talk about today, tomorrow, the time of day, and what you do every day.",
+  "lessons": [
+    {
+      "id": "u8l1",
+      "title": "Today, tomorrow, now",
+      "goal": "Place things in time relative to now.",
+      "notes": [
+        "kallh means both \"yesterday\" and \"tomorrow\" — the verb tense tells you which. Punjabi treats \"the day next to today\" as one idea.",
+        "savere, sham and raat are used with no preposition: main savere jaanda han — I go in the morning."
+      ],
+      "items": [
+        {"id": "u8l1-01", "pa": "ਅੱਜ", "roman": "ajj", "en": "today", "kind": "word"},
+        {"id": "u8l1-02", "pa": "ਕੱਲ੍ਹ", "roman": "kallh", "en": "yesterday / tomorrow", "kind": "word"},
+        {"id": "u8l1-03", "pa": "ਹੁਣ", "roman": "hun", "en": "now", "kind": "word"},
+        {"id": "u8l1-04", "pa": "ਬਾਅਦ ਵਿੱਚ", "roman": "baad vich", "en": "later", "kind": "phrase"},
+        {"id": "u8l1-05", "pa": "ਪਹਿਲਾਂ", "roman": "pahilan", "en": "before / earlier", "kind": "word"},
+        {"id": "u8l1-06", "pa": "ਸਵੇਰੇ", "roman": "savere", "en": "in the morning", "kind": "word"},
+        {"id": "u8l1-07", "pa": "ਦੁਪਹਿਰ", "roman": "dupahir", "en": "afternoon", "kind": "word"},
+        {"id": "u8l1-08", "pa": "ਸ਼ਾਮ", "roman": "sham", "en": "evening", "kind": "word"},
+        {"id": "u8l1-09", "pa": "ਰਾਤ", "roman": "raat", "en": "night", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u8l2",
+      "title": "Days and the clock",
+      "goal": "Ask the time and name the days.",
+      "notes": [
+        "Every day of the week ends in -var: somvar, mangalvar, aitvar.",
+        "kinne vaje han? is literally \"how many struck have?\" — the standard way to ask the time."
+      ],
+      "items": [
+        {"id": "u8l2-01", "pa": "ਦਿਨ", "roman": "din", "en": "day", "kind": "word"},
+        {"id": "u8l2-02", "pa": "ਹਫ਼ਤਾ", "roman": "hafta", "en": "week", "kind": "word"},
+        {"id": "u8l2-03", "pa": "ਮਹੀਨਾ", "roman": "mahina", "en": "month", "kind": "word"},
+        {"id": "u8l2-04", "pa": "ਸਮਾਂ", "roman": "saman", "en": "time", "kind": "word"},
+        {"id": "u8l2-05", "pa": "ਕਿੰਨੇ ਵਜੇ ਹਨ?", "roman": "kinne vaje han?", "en": "What time is it?", "kind": "phrase"},
+        {"id": "u8l2-06", "pa": "ਵਜੇ", "roman": "vaje", "en": "o'clock", "kind": "word"},
+        {"id": "u8l2-07", "pa": "ਸੋਮਵਾਰ", "roman": "somvar", "en": "Monday", "kind": "word"},
+        {"id": "u8l2-08", "pa": "ਸ਼ੁੱਕਰਵਾਰ", "roman": "shukkarvar", "en": "Friday", "kind": "word"},
+        {"id": "u8l2-09", "pa": "ਐਤਵਾਰ", "roman": "aitvar", "en": "Sunday", "kind": "word"}
+      ]
+    },
+    {
+      "id": "u8l3",
+      "title": "Your daily routine",
+      "goal": "Describe what you do on an ordinary day.",
+      "notes": [
+        "Habitual actions use the -da / -di ending plus han: main kamm karda han (male), main kamm kardi han (female).",
+        "This one pattern lets you describe any routine once you know the verb."
+      ],
+      "items": [
+        {"id": "u8l3-01", "pa": "ਕੰਮ", "roman": "kamm", "en": "work", "kind": "word"},
+        {"id": "u8l3-02", "pa": "ਰੋਜ਼", "roman": "roz", "en": "daily / every day", "kind": "word"},
+        {"id": "u8l3-03", "pa": "ਮੈਂ ਸਵੇਰੇ ਉੱਠਦਾ ਹਾਂ", "roman": "main savere utthda han", "en": "I get up in the morning", "kind": "phrase"},
+        {"id": "u8l3-04", "pa": "ਮੈਂ ਕੰਮ ਕਰਦਾ ਹਾਂ", "roman": "main kamm karda han", "en": "I work (male speaker)", "kind": "phrase"},
+        {"id": "u8l3-05", "pa": "ਮੈਂ ਕੰਮ ਕਰਦੀ ਹਾਂ", "roman": "main kamm kardi han", "en": "I work (female speaker)", "kind": "phrase"},
+        {"id": "u8l3-06", "pa": "ਮੈਂ ਖਾਣਾ ਖਾਂਦਾ ਹਾਂ", "roman": "main khana khanda han", "en": "I eat food", "kind": "phrase"},
+        {"id": "u8l3-07", "pa": "ਮੈਂ ਘਰ ਜਾਂਦਾ ਹਾਂ", "roman": "main ghar janda han", "en": "I go home", "kind": "phrase"},
+        {"id": "u8l3-08", "pa": "ਮੈਂ ਰਾਤ ਨੂੰ ਸੌਂਦਾ ਹਾਂ", "roman": "main raat nu saunda han", "en": "I sleep at night", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "Baljit", "pa": "ਤੁਸੀਂ ਰੋਜ਼ ਕੀ ਕਰਦੇ ਹੋ?", "roman": "tusin roz ki karde ho?", "en": "What do you do every day?"},
+        {"speaker": "You", "pa": "ਮੈਂ ਸਵੇਰੇ ਉੱਠਦਾ ਹਾਂ ਤੇ ਕੰਮ ਕਰਦਾ ਹਾਂ।", "roman": "main savere utthda han te kamm karda han.", "en": "I get up in the morning and I work."},
+        {"speaker": "Baljit", "pa": "ਤੇ ਸ਼ਾਮ ਨੂੰ?", "roman": "te sham nu?", "en": "And in the evening?"},
+        {"speaker": "You", "pa": "ਸ਼ਾਮ ਨੂੰ ਮੈਂ ਘਰ ਜਾਂਦਾ ਹਾਂ।", "roman": "sham nu main ghar janda han.", "en": "In the evening I go home."}
+      ]
+    }
+  ]
+}

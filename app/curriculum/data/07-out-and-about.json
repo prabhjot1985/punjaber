@@ -1,0 +1,74 @@
+{
+  "id": "u7",
+  "order": 7,
+  "title": "Out and About",
+  "description": "Find your way, name the places around you, and haggle in the market.",
+  "lessons": [
+    {
+      "id": "u7l1",
+      "title": "Directions",
+      "goal": "Give and follow simple directions.",
+      "notes": [
+        "sajje and khabbe already mean \"to the right\" and \"to the left\" — no extra preposition needed.",
+        "itthe (here) and utthe (there) pair with kitthe (where). Same ending, easy to remember together."
+      ],
+      "items": [
+        {"id": "u7l1-01", "pa": "ਸੱਜੇ", "roman": "sajje", "en": "right / to the right", "kind": "word"},
+        {"id": "u7l1-02", "pa": "ਖੱਬੇ", "roman": "khabbe", "en": "left / to the left", "kind": "word"},
+        {"id": "u7l1-03", "pa": "ਸਿੱਧਾ", "roman": "siddha", "en": "straight ahead", "kind": "word"},
+        {"id": "u7l1-04", "pa": "ਨੇੜੇ", "roman": "nerhe", "en": "near", "kind": "word"},
+        {"id": "u7l1-05", "pa": "ਦੂਰ", "roman": "dur", "en": "far", "kind": "word"},
+        {"id": "u7l1-06", "pa": "ਇੱਥੇ", "roman": "itthe", "en": "here", "kind": "word"},
+        {"id": "u7l1-07", "pa": "ਉੱਥੇ", "roman": "utthe", "en": "there", "kind": "word"},
+        {"id": "u7l1-08", "pa": "ਸੱਜੇ ਮੁੜੋ", "roman": "sajje murho", "en": "Turn right", "kind": "phrase"},
+        {"id": "u7l1-09", "pa": "ਸਿੱਧਾ ਜਾਓ", "roman": "siddha jao", "en": "Go straight", "kind": "phrase"}
+      ]
+    },
+    {
+      "id": "u7l2",
+      "title": "Places",
+      "goal": "Name the places you might need to find.",
+      "notes": [
+        "Many modern words are borrowed from English and simply spelled in Gurmukhi: station, hospital, bus.",
+        "ghar covers both \"house\" and \"home\"."
+      ],
+      "items": [
+        {"id": "u7l2-01", "pa": "ਘਰ", "roman": "ghar", "en": "house / home", "kind": "word"},
+        {"id": "u7l2-02", "pa": "ਬਜ਼ਾਰ", "roman": "bazar", "en": "market", "kind": "word"},
+        {"id": "u7l2-03", "pa": "ਦੁਕਾਨ", "roman": "dukan", "en": "shop", "kind": "word"},
+        {"id": "u7l2-04", "pa": "ਸਟੇਸ਼ਨ", "roman": "station", "en": "station", "kind": "word"},
+        {"id": "u7l2-05", "pa": "ਹਸਪਤਾਲ", "roman": "haspatal", "en": "hospital", "kind": "word"},
+        {"id": "u7l2-06", "pa": "ਸਕੂਲ", "roman": "school", "en": "school", "kind": "word"},
+        {"id": "u7l2-07", "pa": "ਸੜਕ", "roman": "sarhak", "en": "road", "kind": "word"},
+        {"id": "u7l2-08", "pa": "ਗੁਰਦੁਆਰਾ", "roman": "gurduara", "en": "gurdwara (Sikh temple)", "kind": "word"},
+        {"id": "u7l2-09", "pa": "ਬਜ਼ਾਰ ਕਿੱਥੇ ਹੈ?", "roman": "bazar kitthe hai?", "en": "Where is the market?", "kind": "phrase"}
+      ]
+    },
+    {
+      "id": "u7l3",
+      "title": "In the market",
+      "goal": "Ask a price, push back on it, and close the deal.",
+      "notes": [
+        "Bargaining is expected in a bazar and is friendly, not confrontational.",
+        "thorha ghatt karo — \"make it a little less\" — is the polite opening move."
+      ],
+      "items": [
+        {"id": "u7l3-01", "pa": "ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ?", "roman": "ih kinne da hai?", "en": "How much is this?", "kind": "phrase"},
+        {"id": "u7l3-02", "pa": "ਮਹਿੰਗਾ", "roman": "mahinga", "en": "expensive", "kind": "word"},
+        {"id": "u7l3-03", "pa": "ਸਸਤਾ", "roman": "sasta", "en": "cheap", "kind": "word"},
+        {"id": "u7l3-04", "pa": "ਮੈਨੂੰ ਇਹ ਚਾਹੀਦਾ ਹੈ", "roman": "mainu ih chahida hai", "en": "I want this", "kind": "phrase"},
+        {"id": "u7l3-05", "pa": "ਦਿਖਾਓ ਜੀ", "roman": "dikhao ji", "en": "Please show me", "kind": "phrase"},
+        {"id": "u7l3-06", "pa": "ਥੋੜ੍ਹਾ ਘੱਟ ਕਰੋ", "roman": "thorha ghatt karo", "en": "Make it a little less", "kind": "phrase"},
+        {"id": "u7l3-07", "pa": "ਮੈਂ ਲੈ ਲਵਾਂਗਾ", "roman": "main lai lavanga", "en": "I'll take it", "kind": "phrase"},
+        {"id": "u7l3-08", "pa": "ਨਹੀਂ ਚਾਹੀਦਾ", "roman": "nahin chahida", "en": "I don't want it", "kind": "phrase"}
+      ],
+      "dialogue": [
+        {"speaker": "You", "pa": "ਜੀ, ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ?", "roman": "ji, ih kinne da hai?", "en": "Excuse me, how much is this?"},
+        {"speaker": "Seller", "pa": "ਪੰਜ ਸੌ ਰੁਪਏ।", "roman": "panj sau rupae.", "en": "Five hundred rupees."},
+        {"speaker": "You", "pa": "ਬਹੁਤ ਮਹਿੰਗਾ ਹੈ! ਥੋੜ੍ਹਾ ਘੱਟ ਕਰੋ ਜੀ।", "roman": "bahut mahinga hai! thorha ghatt karo ji.", "en": "That's very expensive! Make it a little less."},
+        {"speaker": "Seller", "pa": "ਚਾਰ ਸੌ। ਬਸ।", "roman": "chaar sau. bas.", "en": "Four hundred. That's it."},
+        {"speaker": "You", "pa": "ਠੀਕ ਹੈ, ਮੈਂ ਲੈ ਲਵਾਂਗਾ।", "roman": "thik hai, main lai lavanga.", "en": "OK, I'll take it."}
+      ]
+    }
+  ]
+}
