@@ -147,4 +147,11 @@ docker compose ps
 # The app seeds its recordings onto /data on first start, so this should show
 # a populated directory once the container is healthy.
 sleep 15
-echo "Recordings on the data volume: $(ls /data/recordings/*.webm 2>/dev/null | wc -l)"
+# `set -x` expands the glob before running it, so `ls /data/recordings/*.webm`
+# printed all 323 filenames into the log and buried everything else. find
+# keeps the count without the wall of output.
+echo "Recordings on the data volume: $(find /data/recordings -name '*.webm' 2>/dev/null | wc -l)"
+
+echo ""
+echo "If the site is not reachable by name, DNS is the first thing to check:"
+echo "  the A record must point at this instance's static IP."
