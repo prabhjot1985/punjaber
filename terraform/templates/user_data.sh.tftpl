@@ -50,27 +50,71 @@ apt-get $APT_OPTS install -y docker-ce docker-ce-cli containerd.io docker-buildx
 systemctl enable --now docker
 
 # --- Persistent disk at /data ------------------------------------------------
-# VERIFY IF DATA ISN'T PERSISTING: the attached Lightsail disk shows up as
-# /dev/xvdf on this blueprint. If a future blueprint names it differently this
-# is where it breaks, and the symptom is progress vanishing on instance
-# replacement. `lsblk` on the instance shows the truth.
-DEVICE=/dev/xvdf
-for _ in $(seq 1 30); do
-  [ -b "$DEVICE" ] && break
-  echo "waiting for $DEVICE to attach..."
-  sleep 2
+# Two things make the naive version of this wrong, and both were observed:
+#
+#   1. Terraform asks Lightsail to attach the disk at /dev/xvdf, but the guest
+#      kernel names it whatever it likes. On the NVMe-backed blueprints this
+#      bundle now uses, it appears as /dev/nvme1n1 and /dev/xvdf never exists.
+#   2. Creating the instance and attaching the disk are separate API calls, so
+#      the disk can still be attaching while this script runs, or fail to
+#      attach entirely.
+#
+# So: discover the device instead of assuming its name, wait a while for it to
+# turn up, and if it never does, carry on with /data on the root filesystem.
+# A missing disk should cost persistence across instance replacement, not the
+# entire site -- the previous version aborted here and left nothing running.
+
+echo "Block devices at bootstrap:"
+lsblk || true
+
+find_data_disk() {
+  # The disk carrying /, which is the one we must not touch.
+  root_src="$(findmnt -no SOURCE / 2>/dev/null || true)"
+  root_disk="$(lsblk -no pkname "$root_src" 2>/dev/null | head -1 || true)"
+
+  for dev in $(lsblk -dno NAME,TYPE | awk '$2 == "disk" { print $1 }'); do
+    [ "$dev" = "$root_disk" ] && continue
+    # Anything already mounted from this disk is not ours to format.
+    if [ -n "$(lsblk -no MOUNTPOINT "/dev/$dev" 2>/dev/null | tr -d ' \n')" ]; then
+      continue
+    fi
+    echo "/dev/$dev"
+    return 0
+  done
+  return 1
+}
+
+DATA_DEV=""
+for i in $(seq 1 36); do
+  DATA_DEV="$(find_data_disk || true)"
+  [ -n "$DATA_DEV" ] && break
+  echo "waiting for a data disk to attach ($i/36)..."
+  sleep 5
 done
 
-if ! blkid "$DEVICE"; then
-  echo "No filesystem on $DEVICE — creating ext4 (first boot for this disk)."
-  mkfs.ext4 -F "$DEVICE"
+mkdir -p /data
+
+if [ -n "$DATA_DEV" ]; then
+  echo "Using data disk: $DATA_DEV"
+  if ! blkid "$DATA_DEV" >/dev/null 2>&1; then
+    echo "No filesystem on $DATA_DEV - creating ext4 (first boot for this disk)."
+    mkfs.ext4 -F "$DATA_DEV"
+  fi
+  # Mount by UUID: device names are not stable across reboots or blueprints,
+  # which is the whole problem this section exists to work around.
+  DATA_UUID="$(blkid -s UUID -o value "$DATA_DEV")"
+  if ! grep -q "$DATA_UUID" /etc/fstab; then
+    echo "UUID=$DATA_UUID /data ext4 defaults,nofail 0 2" >> /etc/fstab
+  fi
+  mount /data || mount -a || true
+  echo "Mounted:"; findmnt /data || echo "  WARNING: /data did not mount"
+else
+  echo "WARNING: no separate data disk attached after three minutes."
+  echo "Continuing with /data on the root filesystem so the site still comes up."
+  echo "Progress and any new recordings will NOT survive replacing this instance."
+  echo "Check the disk is attached: Lightsail console -> Storage."
 fi
 
-mkdir -p /data
-if ! grep -q "^$DEVICE" /etc/fstab; then
-  echo "$DEVICE /data ext4 defaults,nofail 0 2" >> /etc/fstab
-fi
-mount -a
 mkdir -p /data/recordings /data/audio
 # The container runs as root, so this is belt and braces rather than required.
 chmod 755 /data

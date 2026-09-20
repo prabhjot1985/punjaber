@@ -85,6 +85,19 @@ resource "aws_lightsail_static_ip" "this" {
 resource "aws_lightsail_static_ip_attachment" "this" {
   static_ip_name = aws_lightsail_static_ip.this.name
   instance_name  = aws_lightsail_instance.this.name
+
+  # Both attachment resources below identify the instance by NAME, and the
+  # name is a constant ("punjaber"). So when the instance is replaced, nothing
+  # about these resources changes and Terraform leaves them alone -- while AWS
+  # has silently dropped the real attachment along with the old instance. The
+  # result is a running instance with neither its static IP nor its data disk,
+  # which is exactly what happened here.
+  #
+  # replace_triggered_by ties them to the instance's identity rather than its
+  # name, so a replacement re-attaches both.
+  lifecycle {
+    replace_triggered_by = [aws_lightsail_instance.this]
+  }
 }
 
 # --- Persistent disk for /data: the SQLite progress database, the recordings,
@@ -102,7 +115,19 @@ resource "aws_lightsail_disk" "data" {
 resource "aws_lightsail_disk_attachment" "data" {
   disk_name     = aws_lightsail_disk.data.name
   instance_name = aws_lightsail_instance.this.name
-  disk_path     = "/dev/xvdf"
+
+  # The requested path, not the one the guest will see. On the NVMe-backed
+  # blueprints this bundle uses, the kernel names it /dev/nvme1n1 and
+  # /dev/xvdf never appears -- so user_data discovers the device instead of
+  # trusting this value.
+  disk_path = "/dev/xvdf"
+
+  # See the note on the static IP attachment above: without this, replacing
+  # the instance leaves the disk detached and the app silently loses its
+  # persistent storage.
+  lifecycle {
+    replace_triggered_by = [aws_lightsail_instance.this]
+  }
 }
 
 # --- No registry credentials, and no IAM user to fetch them.
