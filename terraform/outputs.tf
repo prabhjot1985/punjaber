@@ -60,7 +60,7 @@ output "next_steps" {
        credentials. A reboot is NOT enough: cloud-init runs user_data only on
        an instance's first boot.
 
-      terraform taint aws_lightsail_instance.this && terraform apply
+      terraform apply -replace=aws_lightsail_instance.this
 
     Then check it came up:
 

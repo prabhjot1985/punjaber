@@ -1,21 +1,39 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # First-boot bootstrap for the Punjaber Lightsail instance.
 #
 # cloud-init runs this exactly once, on the instance's first boot — it tracks
 # that it already ran for this instance ID and skips it on every reboot after.
-# So changing an SSM value later and rebooting does nothing; see
-# terraform/README.md for how to update a running instance.
+# So changing an SSM value later and rebooting does nothing; see DEPLOYMENT.md
+# for how to update a running instance.
 #
 # Everything it does is logged to /var/log/punjaber-bootstrap.log.
+
+# Lightsail's launch-script execution does not reliably honour the shebang —
+# it has been observed running this under dash (/bin/sh), which has neither
+# `set -o pipefail` nor `> >(...)` process substitution. Without this guard the
+# script dies on the next two lines having installed nothing, and without even
+# creating the log file that would tell you why. Same guard as valkvtrader's
+# bootstrap. Only POSIX sh syntax above this point, so dash can parse it.
+if [ -z "$BASH_VERSION" ]; then
+  exec /bin/bash "$0" "$@"
+fi
+
 set -euxo pipefail
 exec > >(tee -a /var/log/punjaber-bootstrap.log) 2>&1
 
 echo "=== Punjaber bootstrap starting at $(date -Is) ==="
+echo "Running under: $BASH_VERSION"
 
 # --- Docker -----------------------------------------------------------------
 export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get install -y ca-certificates curl gnupg unzip
+
+# Ubuntu runs unattended-upgrades on first boot, which holds the dpkg lock.
+# With `set -e` a single collision would kill the whole bootstrap, so wait for
+# the lock rather than racing it. apt 2.4 (22.04) supports this natively.
+APT_OPTS="-o DPkg::Lock::Timeout=300"
+
+apt-get $APT_OPTS update
+apt-get $APT_OPTS install -y ca-certificates curl gnupg unzip
 
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
@@ -27,8 +45,8 @@ echo \
 https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" \
   > /etc/apt/sources.list.d/docker.list
 
-apt-get update
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt-get $APT_OPTS update
+apt-get $APT_OPTS install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 systemctl enable --now docker
 
 # --- AWS CLI, for reading the Docker Hub credentials out of SSM -------------
