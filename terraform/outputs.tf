@@ -32,32 +32,18 @@ output "ssh_private_key" {
 output "next_steps" {
   description = "The manual steps Terraform intentionally leaves for you."
   value       = <<-EOT
-    Deployment applied. Three things remain, in this order.
+    Deployment applied. There are no secrets to set: ${var.dockerhub_namespace}/punjaber
+    is a public image and the instance pulls it anonymously. Two things remain.
 
-    1. Set the real Docker Hub credentials. Terraform deliberately never
-       manages these values, so they stay out of state and out of any .tf file:
-
-      aws ssm put-parameter --region ${var.aws_region} \
-        --name "${aws_ssm_parameter.dockerhub_username.name}" \
-        --type SecureString --overwrite --value "YOUR_DOCKERHUB_USERNAME"
-
-      aws ssm put-parameter --region ${var.aws_region} \
-        --name "${aws_ssm_parameter.dockerhub_password.name}" \
-        --type SecureString --overwrite --value "YOUR_DOCKERHUB_ACCESS_TOKEN"
-
-       Use an access token (Docker Hub -> Account Settings -> Security),
-       not your account password, scoped to read-only on
-       ${var.dockerhub_namespace}/punjaber.
-
-    2. Point DNS at the instance, and let it propagate BEFORE step 3 —
+    1. Point DNS at the instance, and let it propagate BEFORE step 2 —
        Caddy's first certificate request fails if the name does not yet
        resolve, and repeated failures hit Let's Encrypt rate limits:
 
       A    ${var.domain_name}  -> ${aws_lightsail_static_ip.this.ip_address}
       AAAA ${var.domain_name}  -> ${aws_lightsail_instance.this.ipv6_addresses[0]}   (optional)
 
-    3. Recreate the instance so user_data runs again, this time finding real
-       credentials. A reboot is NOT enough: cloud-init runs user_data only on
+    2. If the instance booted before DNS resolved, recreate it so user_data
+       runs again. A reboot is NOT enough: cloud-init runs user_data only on
        an instance's first boot.
 
       terraform apply -replace=aws_lightsail_instance.this
@@ -76,6 +62,8 @@ output "next_steps" {
         .github/workflows/docker-publish.yml, which pushes
         ${var.dockerhub_namespace}/punjaber:<tag> and :latest. To roll it out,
         SSH in and `cd /opt/punjaber && docker compose pull && docker compose up -d`.
+      - Pushing needs a Docker Hub token; pulling does not. The token lives in
+        GitHub Actions secrets, never on this instance.
       - The recording studio is ${var.enable_studio ? "ENABLED — anyone who can reach https://${var.domain_name} can overwrite your recordings. Only safe if that domain is genuinely private." : "disabled, which is the right default for a public domain. Record locally, publish a new image, and pull it."}
       - Progress is per-profile, keyed by the X-Punjaber-User header the
         browser sends. Anyone who guesses a profile name can read that

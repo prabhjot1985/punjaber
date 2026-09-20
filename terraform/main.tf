@@ -65,11 +65,6 @@ resource "aws_lightsail_instance" "this" {
   ip_address_type   = "dualstack"
 
   user_data = templatefile("${path.module}/templates/user_data.sh.tftpl", {
-    aws_region                  = var.aws_region
-    bootstrap_access_key_id     = aws_iam_access_key.bootstrap.id
-    bootstrap_secret_access_key = aws_iam_access_key.bootstrap.secret
-    ssm_dockerhub_user_param    = aws_ssm_parameter.dockerhub_username.name
-    ssm_dockerhub_pass_param    = aws_ssm_parameter.dockerhub_password.name
     docker_compose_content = templatefile("${path.module}/templates/docker-compose.prod.yml.tftpl", {
       dockerhub_namespace = var.dockerhub_namespace
       image_tag           = var.image_tag
@@ -110,75 +105,22 @@ resource "aws_lightsail_disk_attachment" "data" {
   disk_path     = "/dev/xvdf"
 }
 
-# --- SSM parameters for the Docker Hub pull credentials. Terraform creates
-# the parameter (so the name/structure exists and can be referenced), but
-# never manages the real value — `ignore_changes = [value]` means once you set
-# the real value by hand (see outputs.next_steps), `terraform apply` will never
-# overwrite it. This is the one manual step in the whole deployment, by design,
-# and it keeps the token out of Terraform state and out of any .tf file.
-resource "aws_ssm_parameter" "dockerhub_username" {
-  name  = "/${var.instance_name}/dockerhub/username"
-  type  = "SecureString"
-  value = "REPLACE_ME"
-
-  lifecycle {
-    ignore_changes = [value]
-  }
-}
-
-resource "aws_ssm_parameter" "dockerhub_password" {
-  name  = "/${var.instance_name}/dockerhub/password"
-  type  = "SecureString"
-  value = "REPLACE_ME"
-
-  lifecycle {
-    ignore_changes = [value]
-  }
-}
-
-# --- Bootstrap IAM user: a narrowly-scoped credential baked into user_data so
-# the instance can read the two SSM parameters above on first boot. A dedicated
-# IAM user + access key rather than an instance role because Lightsail has no
-# IAM-instance-role equivalent — it only supports its own service-linked role,
-# not one you attach for your own app's permissions.
+# --- No registry credentials, and no IAM user to fetch them.
 #
-# Punjaber needs no other AWS permissions at runtime: it talks to nothing but
-# its own disk.
-resource "aws_iam_user" "bootstrap" {
-  name = "${var.instance_name}-bootstrap"
-}
-
-resource "aws_iam_access_key" "bootstrap" {
-  user = aws_iam_user.bootstrap.name
-}
-
-resource "aws_iam_user_policy" "bootstrap" {
-  name = "${var.instance_name}-bootstrap-ssm-read"
-  user = aws_iam_user.bootstrap.name
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid    = "ReadPunjaberParams"
-        Effect = "Allow"
-        Action = ["ssm:GetParameter"]
-        Resource = [
-          aws_ssm_parameter.dockerhub_username.arn,
-          aws_ssm_parameter.dockerhub_password.arn,
-        ]
-      },
-      {
-        # SecureString parameters are encrypted with the account's default SSM
-        # KMS key (alias/aws/ssm). Scoped to "*" rather than a specific key
-        # ARN/alias because IAM resource-matching for KMS aliases vs. key ARNs
-        # in this context isn't something to guess at — the same tradeoff
-        # valkvtrader documents.
-        Sid      = "DecryptWithDefaultSSMKey"
-        Effect   = "Allow"
-        Action   = ["kms:Decrypt"]
-        Resource = ["*"]
-      },
-    ]
-  })
-}
+# valkvlabs/punjaber is a public Docker Hub repository, so the instance pulls
+# it anonymously. That removes what used to be the whole credential chain here:
+# two SSM SecureString parameters, an IAM user, a long-lived access key baked
+# into user_data, and a policy to read them back. It also removes the only
+# manual step the deployment used to have.
+#
+# Pushing still needs a token, but that happens in GitHub Actions, not here
+# (see .github/workflows/docker-publish.yml). Pull and push are different
+# operations: a public repo is world-readable and still write-protected.
+#
+# If the image is ever made private, this is what has to come back: an
+# aws_ssm_parameter pair holding the username and a read-only token (with
+# lifecycle { ignore_changes = [value] } so Terraform never owns the secret),
+# an aws_iam_user + access key scoped to ssm:GetParameter and kms:Decrypt on
+# those two ARNs, the key passed into user_data, and a `docker login` before
+# the pull. valkv-labs/valkvtrader/terraform/main.tf has that arrangement
+# intact if it is needed as a reference.

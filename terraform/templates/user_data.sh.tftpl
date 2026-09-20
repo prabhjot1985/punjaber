@@ -33,7 +33,7 @@ export DEBIAN_FRONTEND=noninteractive
 APT_OPTS="-o DPkg::Lock::Timeout=300"
 
 apt-get $APT_OPTS update
-apt-get $APT_OPTS install -y ca-certificates curl gnupg unzip
+apt-get $APT_OPTS install -y ca-certificates curl gnupg
 
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
@@ -48,12 +48,6 @@ https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_C
 apt-get $APT_OPTS update
 apt-get $APT_OPTS install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 systemctl enable --now docker
-
-# --- AWS CLI, for reading the Docker Hub credentials out of SSM -------------
-curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscliv2.zip
-unzip -q /tmp/awscliv2.zip -d /tmp
-/tmp/aws/install
-rm -rf /tmp/awscliv2.zip /tmp/aws
 
 # --- Persistent disk at /data ------------------------------------------------
 # VERIFY IF DATA ISN'T PERSISTING: the attached Lightsail disk shows up as
@@ -81,30 +75,10 @@ mkdir -p /data/recordings /data/audio
 # The container runs as root, so this is belt and braces rather than required.
 chmod 755 /data
 
-# --- Docker Hub credentials from SSM ----------------------------------------
-# These credentials exist only for the duration of this script; nothing is
-# written to disk and no profile is configured.
-export AWS_ACCESS_KEY_ID="${bootstrap_access_key_id}"
-export AWS_SECRET_ACCESS_KEY="${bootstrap_secret_access_key}"
-export AWS_DEFAULT_REGION="${aws_region}"
-
-DOCKERHUB_USER="$(aws ssm get-parameter --name "${ssm_dockerhub_user_param}" \
-  --with-decryption --query Parameter.Value --output text)"
-DOCKERHUB_PASS="$(aws ssm get-parameter --name "${ssm_dockerhub_pass_param}" \
-  --with-decryption --query Parameter.Value --output text)"
-
-if [ "$DOCKERHUB_USER" = "REPLACE_ME" ] || [ "$DOCKERHUB_PASS" = "REPLACE_ME" ]; then
-  echo "SSM still holds the REPLACE_ME placeholders."
-  echo "Set the real values (see: terraform output next_steps), then recreate"
-  echo "the instance so this script runs again against them."
-  exit 1
-fi
-
-echo "$DOCKERHUB_PASS" | docker login --username "$DOCKERHUB_USER" --password-stdin
-
-unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY DOCKERHUB_PASS
-
 # --- Application files -------------------------------------------------------
+# No `docker login`: valkvlabs/punjaber is a public repository and pulls
+# anonymously. If it is ever made private, a login has to go here and the
+# credential plumbing has to come back — see the note at the end of main.tf.
 mkdir -p /opt/punjaber
 
 cat > /opt/punjaber/Caddyfile <<'CADDYFILE_EOF'
