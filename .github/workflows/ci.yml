@@ -1,0 +1,79 @@
+# Runs on every push and pull request. The suite runs inside the same image
+# the app ships in rather than against a bare Python install, because two of
+# the things worth testing are properties of the image: that espeak-ng is
+# present, and that it renders the pronunciation contrasts the course claims
+# to drill (tests/test_audio.py skips cleanly without it, which would quietly
+# hollow out CI if the image were not used).
+#
+# To require this before merging: Settings -> Branches -> add a branch
+# protection rule for main -> Require status checks to pass -> select
+# "test" (it must run at least once on a PR before it appears in that list,
+# so open/push to a PR first, then set the rule).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build the app image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          load: true
+          tags: punjaber:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run the test suite
+        run: docker run --rm punjaber:ci python -m pytest -q
+
+      - name: Check the frontend parses
+        run: node --check web/app.js
+
+      # The course content is the product, so a malformed lesson file should
+      # fail the build rather than a lesson at runtime. The loader validates
+      # on import, so importing it is the check.
+      - name: Validate the curriculum loads
+        run: |
+          docker run --rm punjaber:ci python -c "
+          from app import curriculum
+          s = curriculum.stats()
+          print(f\"{s['units']} units, {s['lessons']} lessons, {s['items']} items, {s['spoken_texts']} spoken\")
+          assert s['lessons'] > 0 and s['items'] > 0
+          "
+
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.8"
+
+      # fmt and validate need no AWS credentials, so they run on every PR and
+      # catch the class of mistake that would otherwise surface halfway
+      # through a deploy.
+      - name: Check formatting
+        run: terraform -chdir=terraform fmt -check -recursive
+
+      - name: Validate
+        run: |
+          terraform -chdir=terraform init -backend=false -input=false
+          terraform -chdir=terraform validate

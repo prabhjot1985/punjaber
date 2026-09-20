@@ -207,3 +207,32 @@ def test_the_whole_course_can_be_completed_in_order(client):
     summary = client.get("/api/course").json()["summary"]
     assert summary["percent"] == 100
     assert summary["next_lesson"] is None
+
+
+def test_health_reports_the_active_backend_and_studio_state(client):
+    body = client.get("/api/health").json()
+    assert body["backend"] == "sqlite"
+    assert body["studio"] is True
+
+
+def test_studio_uploads_are_refused_when_recording_is_disabled(client, monkeypatch):
+    """A public deployment must not accept audio from anyone who finds the URL."""
+    from app import main
+
+    monkeypatch.setattr(main, "STUDIO_ENABLED", False)
+    phrase = curriculum.lesson(FIRST)["items"][0]["pa"]
+
+    upload = client.post(
+        "/api/recordings",
+        data={"text": phrase},
+        files={"clip": ("take.webm", b"x" * 2048, "audio/webm")},
+    )
+    assert upload.status_code == 403
+
+    removal = client.request("DELETE", "/api/recordings", params={"text": phrase})
+    assert removal.status_code == 403
+
+    # Reading the course is unaffected: learners only ever read.
+    assert client.get("/api/course").status_code == 200
+    assert client.get("/api/recordings").status_code == 200
+    assert client.get("/api/studio/texts").status_code == 200

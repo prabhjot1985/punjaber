@@ -25,6 +25,12 @@ COPY app ./app
 COPY web ./web
 COPY tests ./tests
 
+# The course audio travels with the image so a fresh deployment is not silent.
+# It is seeded onto the data volume at startup rather than read from here,
+# because the studio needs somewhere writable to add to it.
+COPY data/recordings ./seed/recordings
+ENV PUNJABER_RECORDINGS_SEED=/app/seed/recordings
+
 RUN mkdir -p /data
 
 EXPOSE 8000

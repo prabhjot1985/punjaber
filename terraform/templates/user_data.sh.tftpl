@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+# First-boot bootstrap for the Punjaber Lightsail instance.
+#
+# cloud-init runs this exactly once, on the instance's first boot — it tracks
+# that it already ran for this instance ID and skips it on every reboot after.
+# So changing an SSM value later and rebooting does nothing; see
+# terraform/README.md for how to update a running instance.
+#
+# Everything it does is logged to /var/log/punjaber-bootstrap.log.
+set -euxo pipefail
+exec > >(tee -a /var/log/punjaber-bootstrap.log) 2>&1
+
+echo "=== Punjaber bootstrap starting at $(date -Is) ==="
+
+# --- Docker -----------------------------------------------------------------
+export DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get install -y ca-certificates curl gnupg unzip
+
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+  | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" \
+  > /etc/apt/sources.list.d/docker.list
+
+apt-get update
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl enable --now docker
+
+# --- AWS CLI, for reading the Docker Hub credentials out of SSM -------------
+curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscliv2.zip
+unzip -q /tmp/awscliv2.zip -d /tmp
+/tmp/aws/install
+rm -rf /tmp/awscliv2.zip /tmp/aws
+
+# --- Persistent disk at /data ------------------------------------------------
+# VERIFY IF DATA ISN'T PERSISTING: the attached Lightsail disk shows up as
+# /dev/xvdf on this blueprint. If a future blueprint names it differently this
+# is where it breaks, and the symptom is progress vanishing on instance
+# replacement. `lsblk` on the instance shows the truth.
+DEVICE=/dev/xvdf
+for _ in $(seq 1 30); do
+  [ -b "$DEVICE" ] && break
+  echo "waiting for $DEVICE to attach..."
+  sleep 2
+done
+
+if ! blkid "$DEVICE"; then
+  echo "No filesystem on $DEVICE — creating ext4 (first boot for this disk)."
+  mkfs.ext4 -F "$DEVICE"
+fi
+
+mkdir -p /data
+if ! grep -q "^$DEVICE" /etc/fstab; then
+  echo "$DEVICE /data ext4 defaults,nofail 0 2" >> /etc/fstab
+fi
+mount -a
+mkdir -p /data/recordings /data/audio
+# The container runs as root, so this is belt and braces rather than required.
+chmod 755 /data
+
+# --- Docker Hub credentials from SSM ----------------------------------------
+# These credentials exist only for the duration of this script; nothing is
+# written to disk and no profile is configured.
+export AWS_ACCESS_KEY_ID="${bootstrap_access_key_id}"
+export AWS_SECRET_ACCESS_KEY="${bootstrap_secret_access_key}"
+export AWS_DEFAULT_REGION="${aws_region}"
+
+DOCKERHUB_USER="$(aws ssm get-parameter --name "${ssm_dockerhub_user_param}" \
+  --with-decryption --query Parameter.Value --output text)"
+DOCKERHUB_PASS="$(aws ssm get-parameter --name "${ssm_dockerhub_pass_param}" \
+  --with-decryption --query Parameter.Value --output text)"
+
+if [ "$DOCKERHUB_USER" = "REPLACE_ME" ] || [ "$DOCKERHUB_PASS" = "REPLACE_ME" ]; then
+  echo "SSM still holds the REPLACE_ME placeholders."
+  echo "Set the real values (see: terraform output next_steps), then recreate"
+  echo "the instance so this script runs again against them."
+  exit 1
+fi
+
+echo "$DOCKERHUB_PASS" | docker login --username "$DOCKERHUB_USER" --password-stdin
+
+unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY DOCKERHUB_PASS
+
+# --- Application files -------------------------------------------------------
+mkdir -p /opt/punjaber
+
+cat > /opt/punjaber/Caddyfile <<'CADDYFILE_EOF'
+${caddyfile_content}
+CADDYFILE_EOF
+
+cat > /opt/punjaber/docker-compose.yml <<'COMPOSE_EOF'
+${docker_compose_content}
+COMPOSE_EOF
+
+chmod 600 /opt/punjaber/docker-compose.yml
+
+# --- Start -------------------------------------------------------------------
+cd /opt/punjaber
+docker compose pull
+docker compose up -d
+
+echo "=== Punjaber bootstrap finished at $(date -Is) ==="
+echo "Containers:"
+docker compose ps
+
+# The app seeds its recordings onto /data on first start, so this should show
+# a populated directory once the container is healthy.
+sleep 15
+echo "Recordings on the data volume: $(ls /data/recordings/*.webm 2>/dev/null | wc -l)"

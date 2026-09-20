@@ -18,6 +18,9 @@ from . import srs
 
 DB_PATH = Path(os.environ.get("PUNJABER_DB", "/data/punjaber.db"))
 
+# Reported by /api/health so a deployment can be identified at a glance.
+name = "sqlite"
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS lesson_progress (
     user_id      TEXT NOT NULL,

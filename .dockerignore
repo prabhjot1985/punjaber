@@ -1,8 +1,20 @@
 .git
 .gitignore
-data
+.gitattributes
+.github
+terraform
+backups
 **/__pycache__
 **/*.pyc
 .pytest_cache
+
+# Learner progress and the regenerable synthesis cache never belong in an
+# image. data/recordings deliberately does: the published image carries the
+# course audio, which is seeded onto the data volume on a fresh deployment.
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/audio
+
 *.md
 !README.md

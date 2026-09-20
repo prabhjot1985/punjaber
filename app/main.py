@@ -23,9 +23,21 @@ from . import audio, curriculum, db, exercises, recordings
 WEB_DIR = Path(os.environ.get("PUNJABER_WEB", "/app/web"))
 DEFAULT_USER = "local"
 
+# The studio writes the course's audio, and the app has no authentication —
+# anyone who can reach it could replace or delete every recording. That is
+# fine on a laptop and unacceptable on a public URL, so recording is opt-in
+# and defaults to off anywhere but a local run. Learners are unaffected: the
+# course itself only ever reads.
+STUDIO_ENABLED = os.environ.get("PUNJABER_STUDIO", "1").strip().lower() in ("1", "true", "yes")
+
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     db.init()
+    # A freshly provisioned instance has an empty data volume; the published
+    # image carries the recordings, so copy them across once.
+    seeded = recordings.seed_if_empty()
+    if seeded:
+        print(f"Seeded {seeded} bundled recording files onto the data volume.")
     yield
 
 
@@ -90,6 +102,8 @@ def health() -> dict[str, Any]:
         "curriculum": curriculum.stats(),
         "audio": {"offline": audio.available(), "cache": audio.cache_stats()},
         "recordings": recordings.stats(),
+        "backend": db.name,
+        "studio": STUDIO_ENABLED,
     }
 
 
@@ -167,10 +181,21 @@ def list_recordings() -> dict[str, Any]:
     return {"texts": texts, "count": len(texts), "stats": recordings.stats()}
 
 
+def require_studio() -> None:
+    if not STUDIO_ENABLED:
+        raise HTTPException(
+            status_code=403,
+            detail="The recording studio is disabled on this deployment. "
+                   "Record locally with `make start`, then redeploy.",
+        )
+
+
 @app.post("/api/recordings")
 async def upload_recording(
     text: str = Form(...), clip: UploadFile = File(...)
 ) -> dict[str, Any]:
+    require_studio()
+
     # Only course text may be stored — this endpoint is not general file upload.
     if not curriculum.is_spoken(text):
         raise HTTPException(status_code=400, detail="That phrase is not part of the course")
@@ -186,6 +211,7 @@ async def upload_recording(
 
 @app.delete("/api/recordings")
 def delete_recording(text: str) -> dict[str, Any]:
+    require_studio()
     return {"deleted": recordings.delete(text), "text": text}
 
 

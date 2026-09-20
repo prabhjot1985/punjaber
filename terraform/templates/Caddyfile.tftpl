@@ -1,0 +1,18 @@
+${domain_name} {
+	# Caddy obtains and renews a Let's Encrypt certificate automatically. The
+	# studio depends on this: browsers only grant microphone access on a
+	# secure origin, so over plain HTTP recording is impossible.
+	encode zstd gzip
+
+	# Audio is the bulk of the bytes served. The app already sets the right
+	# Cache-Control per response (immutable for synthesis, no-cache for
+	# recordings, which can be replaced in place), so Caddy just passes those
+	# through rather than second-guessing them.
+	reverse_proxy punjaber:8000 {
+		# A cold espeak-ng render of a long phrase is the slowest thing here
+		# and still finishes in well under a second; this is headroom.
+		transport http {
+			response_header_timeout 30s
+		}
+	}
+}

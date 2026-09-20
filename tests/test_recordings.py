@@ -199,3 +199,53 @@ def test_health_counts_recordings(client):
     body = client.get("/api/health").json()
     assert body["recordings"]["count"] == 1
     assert body["recordings"]["bytes"] == len(CLIP)
+
+
+# --- seeding onto a fresh data volume --------------------------------------
+#
+# The published image carries the course audio; a newly provisioned instance
+# has an empty disk. These cover the copy that bridges the two, because a
+# silent deployment is the failure this prevents.
+
+
+def test_seeding_fills_an_empty_store(tmp_path, monkeypatch):
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    recordings.save(HELLO, CLIP, "audio/webm")
+    for path in recordings.STORE_DIR.iterdir():
+        (seed / path.name).write_bytes(path.read_bytes())
+        path.unlink()
+
+    assert not recordings.exists(HELLO)
+
+    monkeypatch.setattr(recordings, "SEED_DIR", seed)
+    assert recordings.seed_if_empty() == 2      # the clip and its sidecar
+    assert recordings.exists(HELLO)
+    assert recordings.path_for(HELLO).read_bytes() == CLIP
+
+
+def test_seeding_never_overwrites_an_existing_store(tmp_path, monkeypatch):
+    """A deployment that has recorded new takes must not be reset to the
+    image's older copies on the next restart."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / f"{recordings.key_for(HELLO)}.webm").write_bytes(b"stale" * 200)
+    (seed / f"{recordings.key_for(HELLO)}.json").write_text("{}", encoding="utf-8")
+
+    newer = CLIP + b"newer take"
+    recordings.save(HELLO, newer, "audio/webm")
+
+    monkeypatch.setattr(recordings, "SEED_DIR", seed)
+    assert recordings.seed_if_empty() == 0
+    assert recordings.path_for(HELLO).read_bytes() == newer
+
+
+def test_seeding_is_a_no_op_without_a_seed_directory(monkeypatch):
+    """A local checkout has no bundled copy; data/recordings is the real one."""
+    monkeypatch.setattr(recordings, "SEED_DIR", None)
+    assert recordings.seed_if_empty() == 0
+
+
+def test_seeding_tolerates_a_missing_seed_directory(tmp_path, monkeypatch):
+    monkeypatch.setattr(recordings, "SEED_DIR", tmp_path / "does-not-exist")
+    assert recordings.seed_if_empty() == 0

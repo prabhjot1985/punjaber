@@ -73,6 +73,9 @@
 
   var browserVoice = null;
   var offlineAudio = true;
+  // A public deployment turns the studio off, since the app has no logins and
+  // its upload endpoint would otherwise be open to anyone.
+  var studioEnabled = true;
   var player = new Audio();
 
   // Texts that have a native-speaker recording behind them. Loaded once at
@@ -1238,6 +1241,9 @@
   function markNav(name) {
     document.querySelectorAll("[data-nav]").forEach(function (link) {
       link.classList.toggle("active", link.getAttribute("data-nav") === name);
+      // Hide the studio entirely where recording is switched off, rather than
+      // offering a tab that can only fail.
+      if (link.getAttribute("data-nav") === "studio") link.hidden = !studioEnabled;
     });
   }
 
@@ -1255,6 +1261,13 @@
     }
     if (parts[0] === "studio") {
       markNav("studio");
+      if (!studioEnabled) {
+        render('<div class="empty"><h1>Recording is off here</h1>' +
+          "<p>This deployment serves the course read-only. Record new audio by " +
+          "running Punjaber locally with <code>make start</code>, then redeploy.</p>" +
+          '<a class="btn btn-primary" href="#/">Back to the course</a></div>');
+        return Promise.resolve();
+      }
       return viewStudio().catch(showError);
     }
     if (parts[0] === "progress") {
@@ -1275,7 +1288,10 @@
   // the first spoken word both honour them.
   Promise.all([
     api("/settings").then(function (loaded) { settings = loaded; }).catch(function () {}),
-    api("/health").then(function (h) { offlineAudio = !!(h.audio && h.audio.offline); })
+    api("/health").then(function (h) {
+      offlineAudio = !!(h.audio && h.audio.offline);
+      studioEnabled = h.studio !== false;
+    })
       .catch(function () { offlineAudio = false; }),
     loadRecordingManifest()
   ]).then(route);

@@ -12,6 +12,12 @@ os.environ["PUNJABER_DB"] = str(_TMP_DIR / "test.db")
 os.environ["PUNJABER_RECORDINGS"] = str(_TMP_DIR / "recordings")
 os.environ["PUNJABER_AUDIO"] = str(_TMP_DIR / "audio")
 
+# The image bundles the real recordings and seeds them onto an empty volume at
+# startup, which is right in production and wrong here: most of these tests
+# assert against a store they control. Seeding gets its own explicit test in
+# tests/test_recordings.py instead.
+os.environ["PUNJABER_RECORDINGS_SEED"] = ""
+
 from fastapi.testclient import TestClient  # noqa: E402
 
 from app import db  # noqa: E402

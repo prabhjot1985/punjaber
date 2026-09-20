@@ -6,7 +6,7 @@ DEV_COMPOSE = $(COMPOSE) -f docker-compose.yml -f docker-compose.dev.yml
 PORT ?= 8000
 
 .DEFAULT_GOAL := help
-.PHONY: help start up build dev down stop restart logs test lint shell open clean reset-data audio-clear recordings-backup recordings-restore status
+.PHONY: help start up build dev down stop restart logs test lint shell open clean reset-data audio-clear recordings-backup recordings-restore status deploy deploy-plan deploy-steps deploy-ip deploy-ssh deploy-destroy tf-fmt
 
 help: ## Show this help
 	@echo "Punjaber"
@@ -79,6 +79,28 @@ recordings-restore: ## Restore recordings from the newest backup in ./backups
 audio-clear: ## Delete cached pronunciation clips (they re-render on demand)
 	rm -rf data/audio
 	@echo "Audio cache cleared."
+deploy: ## Provision the Lightsail instance with Terraform (see DEPLOYMENT.md)
+	cd terraform && terraform init -input=false && terraform apply
+
+deploy-plan: ## Show what a deploy would change, without applying
+	cd terraform && terraform init -input=false && terraform plan
+
+deploy-steps: ## Print the post-apply manual steps (SSM creds, DNS, recreate)
+	@cd terraform && terraform output -raw next_steps
+
+deploy-ip: ## Print the static IP to point DNS at
+	@cd terraform && terraform output -raw static_ip
+
+deploy-ssh: ## SSH into the instance (needs: terraform apply -var open_ssh=true)
+	@cd terraform && terraform output -raw ssh_private_key > punjaber-key.pem \
+		&& chmod 600 punjaber-key.pem \
+		&& ssh -i punjaber-key.pem ubuntu@$$(terraform output -raw static_ip)
+
+deploy-destroy: ## Tear down the instance (the data disk is destroyed too)
+	cd terraform && terraform destroy
+
+tf-fmt: ## Format the Terraform files
+	cd terraform && terraform fmt -recursive
 
 clean: ## Stop everything and remove the image
 	-$(COMPOSE) down --rmi local --volumes --remove-orphans

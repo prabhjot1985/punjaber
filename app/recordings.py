@@ -21,6 +21,15 @@ from typing import Any
 
 STORE_DIR = Path(os.environ.get("PUNJABER_RECORDINGS", "/data/recordings"))
 
+# Recordings ship inside the published image, but at runtime they must live on
+# the persistent volume so the studio can add to them. On a fresh deployment
+# that volume is empty, so the bundled copy is seeded across once. Set by the
+# Dockerfile; empty on a local checkout, where data/recordings is already the
+# real thing and nothing needs copying.
+SEED_DIR = Path(os.environ["PUNJABER_RECORDINGS_SEED"]) if os.environ.get(
+    "PUNJABER_RECORDINGS_SEED"
+) else None
+
 # Browsers hand us whatever their MediaRecorder supports, which differs by
 # engine. We store the file as-is and remember its type for playback.
 EXTENSIONS = {
@@ -39,6 +48,30 @@ MIN_BYTES = 512               # anything smaller is a misfire, not a recording
 
 class RecordingError(ValueError):
     """The upload was not something we are willing to store."""
+
+
+def seed_if_empty() -> int:
+    """Populate an empty store from the copy bundled in the image.
+
+    Only ever fills a store that has nothing in it, so a deployment that has
+    since recorded new takes is never overwritten by the image's older ones.
+    Returns the number of files copied.
+    """
+    if SEED_DIR is None or not SEED_DIR.is_dir():
+        return 0
+    if STORE_DIR.is_dir() and any(STORE_DIR.glob("*.json")):
+        return 0
+
+    STORE_DIR.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    for source in SEED_DIR.iterdir():
+        if not source.is_file():
+            continue
+        target = STORE_DIR / source.name
+        if not target.exists():
+            _atomic_write(target, source.read_bytes())
+            copied += 1
+    return copied
 
 
 def key_for(text: str) -> str:

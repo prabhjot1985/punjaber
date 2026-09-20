@@ -14,3 +14,20 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .venv/
+
+# Deployment notes: kept local on purpose, since they carry account-specific
+# details (URLs, region choices, anything you jot down mid-deploy).
+DEPLOYMENT.md
+
+# Terraform. State can contain resource identifiers and is not something to
+# publish; tfvars holds your own configuration.
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.*
+terraform/*.tfvars
+!terraform/*.tfvars.example
+terraform/crash.log
+terraform/crash.*.log
+terraform/.terraformrc
+terraform/tfplan

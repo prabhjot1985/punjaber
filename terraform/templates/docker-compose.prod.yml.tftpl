@@ -1,0 +1,50 @@
+services:
+  punjaber:
+    image: ${dockerhub_namespace}/punjaber:${image_tag}
+    container_name: punjaber
+    restart: unless-stopped
+    volumes:
+      # The persistent Lightsail disk. Holds the SQLite progress database, the
+      # recordings (seeded from the image on first boot) and the espeak-ng
+      # cache. Survives the instance being replaced.
+      - /data:/data
+    environment:
+      PUNJABER_DB: /data/punjaber.db
+      PUNJABER_WEB: /app/web
+      PUNJABER_AUDIO: /data/audio
+      PUNJABER_RECORDINGS: /data/recordings
+      # Off by default: the app has no authentication, so a public URL with
+      # uploads enabled would let anyone replace the course audio.
+      PUNJABER_STUDIO: "${enable_studio}"
+    expose:
+      - "8000"
+    # Caddy should not start proxying to a container that is still unpacking
+    # its recordings onto the disk.
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      # 80 is needed for the ACME HTTP-01 challenge and the https redirect.
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - /opt/punjaber/Caddyfile:/etc/caddy/Caddyfile:ro
+      # Certificates persist here, so a restart does not re-issue them and
+      # burn Let's Encrypt rate limit.
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - punjaber
+
+volumes:
+  caddy_data:
+  caddy_config:
