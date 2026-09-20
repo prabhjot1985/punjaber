@@ -6,7 +6,7 @@ DEV_COMPOSE = $(COMPOSE) -f docker-compose.yml -f docker-compose.dev.yml
 PORT ?= 8000
 
 .DEFAULT_GOAL := help
-.PHONY: help start up build dev down stop restart logs test lint shell open clean reset-data audio-clear recordings-backup recordings-restore status deploy deploy-plan deploy-steps deploy-ip deploy-ssh deploy-destroy tf-fmt
+.PHONY: help start up build dev down stop restart logs test lint shell open clean reset-data audio-clear recordings-backup recordings-restore status check-aws deploy deploy-plan deploy-steps deploy-ip deploy-ssh deploy-destroy tf-fmt
 
 help: ## Show this help
 	@echo "Punjaber"
@@ -79,10 +79,36 @@ recordings-restore: ## Restore recordings from the newest backup in ./backups
 audio-clear: ## Delete cached pronunciation clips (they re-render on demand)
 	rm -rf data/audio
 	@echo "Audio cache cleared."
-deploy: ## Provision the Lightsail instance with Terraform (see DEPLOYMENT.md)
+check-aws: ## Verify an AWS profile is selected and its SSO session is live
+	@test -n "$$AWS_PROFILE" || { \
+		echo ""; \
+		echo "  AWS_PROFILE is not set, and there is no [default] profile to fall back on."; \
+		echo "  Terraform reads it from the environment; it cannot guess."; \
+		echo ""; \
+		echo "    aws configure list-profiles      # see what you have"; \
+		echo "    aws sso login --profile <name>   # --no-browser under WSL"; \
+		echo "    export AWS_PROFILE=<name>"; \
+		echo ""; \
+		exit 1; }
+	@command -v aws >/dev/null 2>&1 || { \
+		echo ""; \
+		echo "  The AWS CLI is not installed, so credentials cannot be checked."; \
+		echo "  Install AWS CLI v2, or run terraform directly if you are sure."; \
+		echo ""; \
+		exit 1; }
+	@id=$$(aws sts get-caller-identity --query 'join(`  `, [Account, Arn])' --output text 2>/dev/null) \
+		&& echo "  Deploying as: $$id" \
+		|| { \
+		echo ""; \
+		echo "  Profile '$$AWS_PROFILE' has no live session (or the call failed)."; \
+		echo "    aws sso login --profile $$AWS_PROFILE"; \
+		echo ""; \
+		exit 1; }
+
+deploy: check-aws ## Provision the Lightsail instance with Terraform (see DEPLOYMENT.md)
 	cd terraform && terraform init -input=false && terraform apply
 
-deploy-plan: ## Show what a deploy would change, without applying
+deploy-plan: check-aws ## Show what a deploy would change, without applying
 	cd terraform && terraform init -input=false && terraform plan
 
 deploy-steps: ## Print the post-apply manual steps (SSM creds, DNS, recreate)
