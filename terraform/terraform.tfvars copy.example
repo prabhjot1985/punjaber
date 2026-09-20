@@ -7,7 +7,7 @@ domain_name = "punjabi.example.com"
 # instance_name       = "punjaber"
 # bundle_id           = "micro_3_0"   # verify via: aws lightsail get-bundles --region us-west-2
 # blueprint_id        = "ubuntu_22_04"
-# disk_size_gb        = 8
+# disk_size_gb        = 10
 # dockerhub_namespace = "valkvlabs"
 # image_tag           = "latest"
 

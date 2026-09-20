@@ -58,12 +58,13 @@ variable "disk_size_gb" {
     the recordings and the synthesis cache. Survives instance deletion as long
     as the disk resource itself isn't destroyed.
 
-    The recordings are the large part at ~8.4 MB today, so 8 GB is already
-    enormous; the minimum is what makes this cheap rather than what makes it
-    fit.
+    The recordings are the large part at ~8.4 MB today, so this is enormous
+    relative to the need. It matches valkvtrader rather than being sized to
+    Punjaber, on the grounds that a consistent disk size across the estate is
+    worth more than the few cents saved.
   EOT
   type        = number
-  default     = 8
+  default     = 10
 }
 
 variable "dockerhub_namespace" {
